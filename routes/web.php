@@ -23,7 +23,13 @@ Route::get('/', function () {
 
 Route::get('/dashboard',[kasircontroller::class, 'dashboard']);
 
+Route::get('/data_produk', [kasircontroller::class, 'data_barang']);
+
+
+
+
 
 Route::get('/login', [logincontroller::class, 'halaman_login'])->name('login');
 
 Route::post('/proses_login', [logincontroller::class, 'proses_login']);
+

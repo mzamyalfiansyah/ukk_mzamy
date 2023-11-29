@@ -14,7 +14,7 @@ class petugas extends Authenticatable
 
     protected $fillabel = [
         'id_petugas', 
-        'nama_petugas', 
+        'nama_lengkap', 
         'username', 
         'password', 
         'no_telp', 

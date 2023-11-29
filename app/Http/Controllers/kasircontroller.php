@@ -14,6 +14,10 @@ class kasircontroller extends Controller
         return view('dashboard');
     }
 
+    function data_barang(){
+        return view('data_produk');
+    }
+
 
     
     

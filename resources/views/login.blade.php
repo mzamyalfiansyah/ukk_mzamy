@@ -49,6 +49,22 @@
         
     }
 
+    .zkasir{
+        font-family: agbalumo; 
+        
+       
+
+    }
+
+    .zkasir1{
+        color: rgb(173, 0, 0); 
+        
+    }
+    .zkasir2{
+        color: rgb(14, 17, 26); 
+        
+    }
+
     
 
     .isi{
@@ -66,11 +82,11 @@
         border: 1px solid rgb(97, 114, 138);
         border-radius: 10px;
         justify-content: center;
-        
+        margin-left: 15%
     }
 
     .input-group input{
-       
+
     }
     .input-group img{
         width: 10%;
@@ -83,7 +99,7 @@
 
     .tombol{
         background-color: rgb(14, 17, 26);
-        color: rgb(141, 4, 4);
+        color: rgb(255, 255, 255);
         border: none;
         border-radius: 5px;
         width: 70%;
@@ -110,15 +126,18 @@
             <div class="isi"> 
                 <img src="storage/image/login.jpg" alt="">
 
-                <div class="box">
+                <div class="box" >
                     
 
                     
 
-                    <form action="/proses_login" method="POST">
+                    <form action="/proses_login" method="POST" >
                         @method('POST')
                         @csrf
-
+                        <div class="zkasir" style="display: flex; justify-content:center; ">
+                            <h3 class="zkasir1">Z-</h3>
+                            <h3 class="zkasir2">Kasir</h3>
+                        </div>
 
                         <p class="input-group mb-3">
                             <img src="storage/image/user.png" alt="">
