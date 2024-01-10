@@ -141,12 +141,12 @@
 
                         <p class="input-group mb-3">
                             <img src="storage/image/user.png" alt="">
-                            <input type="text" class="form-control" name="username" placeholder="Username" aria-label="username" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" name="username" placeholder="Username" aria-label="username" aria-describedby="basic-addon1" required>
                         </p>
                         
                         <p class="input-group mb-3">
                             <img src="storage/image/lock.png" alt="">
-                            <input type="password" class="form-control" name="password" placeholder="Password" aria-label="password" aria-describedby="basic-addon1">
+                            <input type="password" class="form-control" name="password" placeholder="Password" aria-label="password" aria-describedby="basic-addon1" required>
                         </p>
 
                         <p>

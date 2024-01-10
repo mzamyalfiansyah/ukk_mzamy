@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <title>Dashboard</title>
+    <title>Customer</title>
 </head>
 
 <style>
@@ -139,7 +139,7 @@ nav{
        
   
             <li class="nav-item" >
-              <a href="dashboard" class="nav-link link-light" aria-current="page" style="background-color: rgb(173, 0, 0); border-radius: 5px;">
+              <a href="dashboard" class="nav-link link-light" aria-current="page" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
                   <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
                 </svg>
@@ -172,7 +172,7 @@ nav{
   
   
             <li>
-              <a href="/customer" class="nav-link link-light">
+              <a href="customer" class="nav-link link-light" style="background-color: rgb(173, 0, 0); border-radius: 5px;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
                   <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
                 </svg>
@@ -205,95 +205,117 @@ nav{
 
       <div style="margin-top: 10%; margin-left: 5%; width:70%; display: flex;">
 
+        <div class="table-responsive table table-striped">
 
+                
 
-        <div style="width: 45%; background-color: rgb(182, 0, 0); height: 30%; border-radius: 15px; color: rgb(255, 135, 135);">
-
-          <div style="background-color: rgb(94, 0, 0); height: 40%; color: rgb(255, 135, 135);  border-top-left-radius: 15px;
-          border-top-right-radius: 15px;">
-            <h2>Total Admin</h2>
-
+            <table class="table" style="border: 2px solid rgb(148, 148, 148);">
             
-          </div>
-          <div style="display: flex;">
-            <h2 style="margin-left: 10%; font-size: 65px;">{{$jumlah_admin}}</h2>
-            <div>
-              <svg style="margin-left: 50%; width: 42%;" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
-                <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
-                </svg>
-              </div>
+                <thead>
+                    <tr class="table-active">
+                    <th scope="col">No</th>
+                    <th>ID</th>
+                    <th scope="col">Nama Pelanggan</th>
+                    <th scope="col">Alamat</th>
+                    <th scope="col">Nomor Hp</th>
+                    
 
-          </div>
-        </div>
+                    </tr>
 
+                </thead>
 
-        <div style="width: 45%; background-color: rgb(0, 182, 82); height: 30%; border-radius: 15px; color: rgb(145, 255, 194); margin-left: 5%;">
+                
 
-          <div style="background-color: rgb(0, 94, 55); height: 40%; color: rgb(145, 255, 194);  border-top-left-radius: 15px;
-          border-top-right-radius: 15px;">
-            <h2>Total Transaksi</h2>
-
+                    <tbody>
+                                
+            <?php $no=1 ?>
             
-          </div>
-          <div style="display: flex;">
-            <h2 style="margin-left: 10%; font-size: 65px;">5</h2>
-            <div>
-              <svg style="margin-left: 50%; width: 42%;" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
-                <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z"/>
-              </svg>
-              </div>
-
-          </div>
-        </div>
-
-
-        <div style="width: 45%; background-color: rgb(0, 176, 182); height: 30%; border-radius: 15px; color: rgb(131, 235, 253); margin-left: 5%;">
-
-          <div style="background-color: rgb(0, 83, 94); height: 40%; color: rgb(131, 235, 253);  border-top-left-radius: 15px;
-          border-top-right-radius: 15px;">
-            <h2>Total Pelanggan</h2>
-
+                        @foreach($tampil_pelanggan as $customer)
             
-          </div>
-          <div style="display: flex;">
-            <h2 style="margin-left: 10%; font-size: 65px;">{{$total_pelanggan}}</h2>
-            <div>
-              <svg style="margin-left: 50%; width: 42%;" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
-                <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
-                </svg>
-              </div>
-
-          </div>
-        </div>
-
-
-        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-          <div class="toast-header">
-            <img src="..." class="rounded me-2" alt="...">
-            <strong class="me-auto">Bootstrap</strong>
-            <small>11 mins ago</small>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-          </div>
-          <div class="toast-body">
-            Hello, world! This is a toast message.
-          </div>
-        </div>
-
-       
+                                <tr>
+                                    <td>{{ $no++ }}</td>
+                                    <td> {{$customer->pelanggan_id}} </td>
+                                    <td>{{$customer->nama_pelanggan}}</td>
+                                    <td>{{$customer->alamat}}</td>
+                                    <td>{{$customer->no_telepon}}</td>
+                                </tr>
             
-        <tr>
+                            
+            
+                                
+            
+                        @endforeach 
+                    </tbody>
+                
+                            
+                </table>       
 
-          
-        </tr>
+           
+                   
 
         
+        
+
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+
+                        <p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Tambahkan Pelanggan</button>
+                            
+
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Tambahkan Pelanggan</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+
+                                    <form action="proses_customer" method="post">
+                                      @method('post')
+                                      @csrf
+
+                                      <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Nama</label>
+                                        <input type="text" class="form-control" id="recipient-name" name="nama_pelanggan" placeholder="Masukkan nama">
+                                      </div>
+
+                                      <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Alamat</label>
+                                        <input class="form-control" id="message-text" name="alamat" placeholder="Masukkan alamat">
+                                      </div>
+
+                                      <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Nomor</label>
+                                        <input type="tel" class="form-control"  id="message-text" name="no_telepon" placeholder="Masukkan nomor">
+                                      </div>
+                                    
+
+                                  </div>
+
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">batal</button>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                  </div>
+                                </form>
+                                </div>
+                              </div>
+                            </div>
+                        </p>
+
+    
+
+            </div>
+    
 
 
-        <p>IDR {{$total_harga}}.000</p>
 
-      </div>
+        </div>
 
 
   
-</body>
+    </body>
 </html>

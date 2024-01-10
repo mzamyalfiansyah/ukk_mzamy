@@ -10,12 +10,12 @@ use Illuminate\Support\Facades\Auth;
 
 class logincontroller extends Controller
 {
-    public function halaman_login(){
+    function halaman_login(){
         return view('login');
     }
 
 
-    public function proses_login(request $request){
+    function proses_login(request $request){
 
     
         $login = $request->only("username", "password");
@@ -29,5 +29,39 @@ class logincontroller extends Controller
 
 
     }
+
+    function daftar(){
+        return view('daftar');
+    }
+
+
+
+    function proses_daftar(request $request){
+
+        $isi_nama = $request->nama_lengkap;
+        $isi_username = $request-> username;
+        $isi_password = $request->password;
+        $isi_telp = $request->no_telp;
+        $isi_status = $request->status;
+        
+
+
+        DB::table('admin')->insert([
+            'nama_lengkap' => $isi_nama,
+            'username' => $isi_username,
+            'password' => hash::make($isi_password),
+            'no_telp' => $isi_telp,
+           
+            
+
+        ]);
+        return redirect('/login');
+    }
+
+
+    public function proseslogout(){
+        Auth::logout();
+        return redirect('login');
+     }
 
 }
