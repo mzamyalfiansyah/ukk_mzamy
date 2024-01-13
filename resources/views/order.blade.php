@@ -179,6 +179,17 @@ nav{
                 Customers
               </a>
             </li>
+            
+
+            <li>
+              <a href="penjualan" class="nav-link link-light">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
+                  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+                  <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+                </svg>
+                Penjualan
+              </a>
+            </li>
 
 
             <hr style="margin-top: 70%;">
@@ -238,6 +249,7 @@ nav{
                       <th scope="col">Nama Produk</th>
                       <th scope="col">Harga</th>
                       <th scope="col">Stok</th>   
+                      <th>Qty</th>
                       <th>Opsi</th>         
                     </tr>
 
@@ -245,28 +257,46 @@ nav{
                     <tbody>
                                 
             <?php $no=1 ?>
-                      <form action="post">
-                        @method('post')
-                        @csrf
+                      
                         @foreach($tampil_produk as $produk)
             
+                        <form action="/proses_order/{{$produk->produk_id}}" method="post">
+                          @method('post')
+                          @csrf 
                                 <tr>
                                     <td>{{ $no++ }}</td>
-                                    <td> {{$produk->produk_id}} </td>
-                                    <td>{{$produk->nama_produk}}</td>
-                                    <td>{{$produk->harga}}</td>
-                                    <td>{{$produk->stok}}</td>
                                     <td>
-                                      <button type="button" class="btn btn-primary">
+                                      <input type="hidden" name="produk_id" value="{{$produk->produk_id}}">
+                                      {{$produk->produk_id}}
+                                    </td>
+
+                                    
+                                    <td>{{$produk->nama_produk}}</td>
+
+                                    <td>
+                                     
+                                      {{$produk->harga}}
+                                    </td>
+                                  
+                                    <td>{{$produk->stok}}</td>
+
+                                        
+
+                                    <td style="width: 10%">
+                                      <p>Qty</p>
+                                      <input   type="number" class="form-control" name="qty" placeholder="Qty" aria-label="idmember" aria-describedby="basic-addon1">
+                                    </td>
+                                    <td>
+                                      <button type="submit" class="btn btn-primary">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                           <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
                                         </svg>
                                       </button>
                                     </td>
                                 </tr>
-                      
+                          </form>
                         @endforeach 
-                      </form>
+                      
                     </tbody>           
                 </table>       
               </div>
@@ -290,12 +320,12 @@ nav{
             
               <thead>
                   <tr class="table-active">
-                    <th scope="col">ID</th>
-                    <th scope="col">Nama Produk</th>
-                    <th scope="col">Harga</th>
-                    <th scope="col">Stok</th>
+                    <th scope="col">No</th>
+                    <th scope="col">Produk ID</th>
                     <th scope="col">Qty</th>
-                    <th>Total</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Tanggal</th>
+                    
   
                   </tr>
   
@@ -303,21 +333,18 @@ nav{
                 <tbody>
   
   
-     
-  
+                  <?php $no=1 ?>
+                  @foreach($tampil_inventory as $inventory)
                   <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                      <div style="width: 30%">
-                        <input type="number" class="form-control" name="Qty" placeholder="Qty"  >
-                      </div>
-                    </td>
-                    <td></td>
+                    <td>{{ $no++ }}</td>
+                    <td>{{$inventory->produk_id}}</td>
+                    <td>{{$inventory->qty}}</td>
+                    <td>{{$inventory->total}}</td>
+                    <td>{{$inventory->tgl}}</td>
+                    
 
                   </tr>
+                  @endforeach
                 </tbody>
   
                 
@@ -337,23 +364,26 @@ nav{
 
       {{-- akhir tabel --}}
       
-      <h3>Total Harga : </h3>
+      
     
       <div class="mb-3" style="display: flex; margin: ;">
        
 
-        <div>
-          <label for="idmember">Customer ID</label>
-          <input   type="text" class="form-control" name="Qty" placeholder="idmember" aria-label="idmember" aria-describedby="basic-addon1">
+        <div style="display: flex">
+          
+          <div>
+            <h5>Dibayar</h5>
+            <input   type="num" class="form-control" name="Qty" placeholder="dibayar" aria-label="idmember" aria-describedby="basic-addon1">
+          </div>
         </div>
 
         
       </div>
 
       
+      <h3>Total Harga : </h3>
 
-
-        <button class="btn btn-primary" type="button">Order</button>
+      <button class="btn btn-primary" type="button">Order</button>
     
     
     

@@ -69,12 +69,36 @@ class kasircontroller extends Controller
 
         $produk = DB::table('produk')->get();
 
+        $inventory = DB::table('inventory')->join('produk', 'produk_id', )->get();
+
+
+        return view('order',  ['tampil_produk' => $produk, 'tampil_inventory' => $inventory]);
+        
+        
+    }
+
+
+    function proses_order(request $request, $id){
+
+        $produk_id = $request->produk_id;
+        $qty = $request->qty;
+        $total = $request->total;
+        $date = now()->format('Y-m-d');
+
+        $p = DB::table('produk')->where('produk_id', $produk_id)->first();
+
        
-
-
-        return view('order',  ['tampil_produk' => $produk]);
+        DB::table('inventory')->insert([
         
-        
+            'produk_id' => $produk_id,
+            
+            'qty' => $qty,
+            'total' => $qty * $p->harga,
+            'tgl' => $date
+           
+        ]);
+        return redirect('/order');
+
     }
 
     
@@ -148,5 +172,17 @@ class kasircontroller extends Controller
         ]);
         return redirect()->back();
     }
+
+    function penjualan(){
+
+        return view('penjualan');
+    }
+
+
+
+
+
+
+  
     
 }

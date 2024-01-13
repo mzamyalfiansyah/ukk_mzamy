@@ -44,6 +44,12 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/masuk_cart/{id}', [kasircontroller::class, 'order']);
 
+    
+
+    Route::get('/penjualan', [kasircontroller::class, 'penjualan']);
+
+    
+    Route::post('/proses_order/{id}', [kasircontroller::class, 'proses_order']);
 
 });
 
