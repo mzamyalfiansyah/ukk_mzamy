@@ -212,6 +212,55 @@
 
 
     </ul>
+
+    <div class="table-responsive table table-striped" style="height: 30%;">
+      <table class="table" style="border: 2px solid rgb(148, 148, 148);">
+        
+          <thead>
+              <tr class="table-active">
+                <th scope="col">No</th>
+                <th scope="col">Nama Produk</th>
+                <th scope="col">Tanggal</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Total</th>
+                
+                
+
+              </tr>
+
+            </thead>
+            <tbody>
+
+
+              <?php $no=1 ?>
+              @foreach($penjualan as $tampil_penjualan)
+              <tr>
+                <td>{{ $no++ }}</td>
+                <td>{{$tampil_penjualan->nama_produk}}</td>
+                <td>{{$tampil_penjualan->tanggal_penjualan}}</td>
+                <td>{{$tampil_penjualan->qty}}</td>
+                <td>{{$tampil_penjualan->total_harga}}</td>
+                
+                
+
+              </tr>
+              @endforeach
+            </tbody>
+
+            
+      </table>
+     
+    
+ 
+
+  <br>
+
+  
+  
+
+  
+
+  </div>
     
    
 </div>

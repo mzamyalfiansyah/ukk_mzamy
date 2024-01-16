@@ -69,16 +69,27 @@ class kasircontroller extends Controller
 
         $produk = DB::table('produk')->get();
 
-        $inventory = DB::table('inventory')->join('produk', 'produk_id', )->get();
+        $inventory = DB::table('inventory')
+        ->join('produk', 'inventory.produk_id', '=', 'produk.produk_id')
+        ->select('produk.nama_produk', 'produk.harga', 'inventory.qty', 'inventory.total', 'inventory.tgl' )->get();
 
+        $harga = DB::table('inventory')->get('total');
+        $total_harga = collect($harga)->sum('total');
 
-        return view('order',  ['tampil_produk' => $produk, 'tampil_inventory' => $inventory]);
+        return view('order',  ['tampil_produk' => $produk, 'tampil_inventory' => $inventory, 'total_harga' => $total_harga]);
         
         
     }
 
+    function proses_order(){
 
-    function proses_order(request $request, $id){
+        DB::table('inventory')->delete();
+
+        return redirect('penjualan');
+    }
+
+
+    function keranjang(request $request, $id){
 
         $produk_id = $request->produk_id;
         $qty = $request->qty;
@@ -175,8 +186,11 @@ class kasircontroller extends Controller
 
     function penjualan(){
 
-        return view('penjualan');
+        $tampil_penjualan = DB::table('penjualan')->get();
+
+        return view('penjualan', ['penjualan' => $tampil_penjualan]);
     }
+
 
 
 

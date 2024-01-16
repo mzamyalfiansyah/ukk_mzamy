@@ -260,7 +260,7 @@ nav{
                       
                         @foreach($tampil_produk as $produk)
             
-                        <form action="/proses_order/{{$produk->produk_id}}" method="post">
+                        <form action="/keranjang/{{$produk->produk_id}}" method="post">
                           @method('post')
                           @csrf 
                                 <tr>
@@ -284,7 +284,7 @@ nav{
 
                                     <td style="width: 10%">
                                       <p>Qty</p>
-                                      <input   type="number" class="form-control" name="qty" placeholder="Qty" aria-label="idmember" aria-describedby="basic-addon1">
+                                      <input   type="number" class="form-control" name="qty" placeholder="Qty" aria-label="idmember" aria-describedby="basic-addon1" required>
                                     </td>
                                     <td>
                                       <button type="submit" class="btn btn-primary">
@@ -321,10 +321,11 @@ nav{
               <thead>
                   <tr class="table-active">
                     <th scope="col">No</th>
-                    <th scope="col">Produk ID</th>
+                    <th scope="col">Nama Produk</th>
+                    <th scope="col">Harga Satuan</th>
                     <th scope="col">Qty</th>
                     <th scope="col">Total</th>
-                    <th scope="col">Tanggal</th>
+                   
                     
   
                   </tr>
@@ -337,10 +338,11 @@ nav{
                   @foreach($tampil_inventory as $inventory)
                   <tr>
                     <td>{{ $no++ }}</td>
-                    <td>{{$inventory->produk_id}}</td>
+                    <td>{{$inventory->nama_produk}}</td>
+                    <td>{{$inventory->harga}}</td>
                     <td>{{$inventory->qty}}</td>
                     <td>{{$inventory->total}}</td>
-                    <td>{{$inventory->tgl}}</td>
+                    
                     
 
                   </tr>
@@ -372,8 +374,8 @@ nav{
         <div style="display: flex">
           
           <div>
-            <h5>Dibayar</h5>
-            <input   type="num" class="form-control" name="Qty" placeholder="dibayar" aria-label="idmember" aria-describedby="basic-addon1">
+            <h5>Nama Member</h5>
+            <input type="num" class="form-control" name="namamember" placeholder="Masukkan Nama" aria-label="namamember" aria-describedby="basic-addon1">
           </div>
         </div>
 
@@ -381,9 +383,11 @@ nav{
       </div>
 
       
-      <h3>Total Harga : </h3>
+      <h5>Total Harga : Rp {{$total_harga}}.000</h5>
 
-      <button class="btn btn-primary" type="button">Order</button>
+      {{-- <h5>Kembalian : Rp {{}}.000</h5> --}}
+
+      <a href="proses_order" class="btn btn-primary" type="button">Order</a>
     
     
     
