@@ -20,12 +20,12 @@ class kasircontroller extends Controller
         $pelanggan = DB::table('pelanggan')->get();
         $total_pelanggan = count($pelanggan);
 
-        $harga = DB::table('produk')->get('harga');
-        $total_harga = collect($harga)->sum('harga');
+        // $harga = DB::table('produk')->get('harga');
+        // $total_harga = collect($harga)->sum('harga');
 
 
     
-        return view('dashboard', ['jumlah_admin' => $jumlah_admin, 'total_pelanggan' => $total_pelanggan, 'total_harga' => $total_harga]);
+        return view('dashboard', ['jumlah_admin' => $jumlah_admin, 'total_pelanggan' => $total_pelanggan]);
     }
 
     function proses_cart($id){
@@ -102,7 +102,7 @@ class kasircontroller extends Controller
         DB::table('inventory')->insert([
         
             'produk_id' => $produk_id,
-            
+
             'qty' => $qty,
             'total' => $qty * $p->harga,
             'tgl' => $date

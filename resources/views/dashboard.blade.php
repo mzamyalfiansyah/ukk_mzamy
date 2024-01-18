@@ -303,7 +303,7 @@ nav{
         
 
 
-        <p>IDR {{$total_harga}}.000</p>
+        
 
       </div>
 
