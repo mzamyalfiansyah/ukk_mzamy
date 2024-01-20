@@ -51,7 +51,7 @@ Route::middleware(['auth'])->group(function () {
     
     Route::post('/keranjang/{id}', [kasircontroller::class, 'keranjang']);
 
-    Route::get('proses_order', [kasircontroller::class, 'proses_order']);
+    Route::post('proses_order/{id}', [kasircontroller::class, 'proses_order']);
 
 });
 

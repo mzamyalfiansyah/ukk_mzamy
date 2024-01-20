@@ -224,7 +224,7 @@
         <h2>Stok Barang</h2>
          
          
-        <div class="table-responsive table table-striped" style="height: 45%;">
+        <div class="table-responsive table table-striped" style="height: 45%; text-align: center;">
             <table class="table" style="border: 2px solid rgb(148, 148, 148);">
               
                 <thead>

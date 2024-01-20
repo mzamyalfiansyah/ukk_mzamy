@@ -17,6 +17,9 @@ class kasircontroller extends Controller
         $admin = DB::table('admin')->get();
         $jumlah_admin = count($admin);
 
+        $penjualan = DB::table('pelanggan')->get();
+        $total_penjualan= count($penjualan);
+
         $pelanggan = DB::table('pelanggan')->get();
         $total_pelanggan = count($pelanggan);
 
@@ -25,7 +28,7 @@ class kasircontroller extends Controller
 
 
     
-        return view('dashboard', ['jumlah_admin' => $jumlah_admin, 'total_pelanggan' => $total_pelanggan]);
+        return view('dashboard', ['jumlah_admin' => $jumlah_admin, 'total_penjualan' => $total_penjualan, 'total_pelanggan' => $total_pelanggan]);
     }
 
     function proses_cart($id){
@@ -71,7 +74,7 @@ class kasircontroller extends Controller
 
         $inventory = DB::table('inventory')
         ->join('produk', 'inventory.produk_id', '=', 'produk.produk_id')
-        ->select('produk.nama_produk', 'produk.harga', 'inventory.qty', 'inventory.total', 'inventory.tgl' )->get();
+        ->select('inventory.inventory_id','inventory.produk_id','produk.nama_produk', 'produk.harga', 'inventory.qty', 'inventory.total', 'inventory.tgl' )->get();
 
         $harga = DB::table('inventory')->get('total');
         $total_harga = collect($harga)->sum('total');
@@ -81,7 +84,27 @@ class kasircontroller extends Controller
         
     }
 
-    function proses_order(){
+    function proses_order(request $request, $id){
+
+        $produk_id = $request->produk_id;
+        $nama_produk = $request->nama_produk;
+        $tgl = $request->tgl;
+        $harga = $request->harga;
+        $qty = $request->qty;
+        $total = $request->total;
+        $pelanggan_id = $request->id_pelanggan;
+
+        DB::table('penjualan')->insert([
+            
+            'produk_id' => $produk_id,
+            'nama_produk' => $nama_produk,
+            'tanggal_penjualan' => $tgl,
+            'harga' => $harga,
+            'qty' => $qty,
+            'total_harga' => $total,
+            'pelanggan_id' => $pelanggan_id
+
+        ]);
 
         DB::table('inventory')->delete();
 

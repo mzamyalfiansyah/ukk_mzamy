@@ -315,7 +315,7 @@ nav{
           <br>
           <br>
 
-        <div class="table-responsive table table-striped" style="height: 30%;">
+        <div class="table-responsive table table-striped" style="height: 30%; text-align: center;">
           <table class="table" style="border: 2px solid rgb(148, 148, 148);">
             
               <thead>
@@ -332,20 +332,40 @@ nav{
   
                 </thead>
                 <tbody>
-  
-  
-                  <?php $no=1 ?>
-                  @foreach($tampil_inventory as $inventory)
-                  <tr>
-                    <td>{{ $no++ }}</td>
-                    <td>{{$inventory->nama_produk}}</td>
-                    <td>{{$inventory->harga}}</td>
-                    <td>{{$inventory->qty}}</td>
-                    <td>{{$inventory->total}}</td>
-                    
-                    
 
-                  </tr>
+                  @foreach($tampil_inventory as $inventory)
+                    <form action="/proses_order/{{$inventory->inventory_id}}" method="post">
+                      @method('post')
+                      @csrf
+                      <?php $no=1 ?>
+                      
+                        <tr>
+                          <td>{{ $no++ }}</td>
+                          
+                          
+                          <input type="hidden" name="inventory_id" value="{{$inventory->inventory_id}}">
+                            
+                          <input type="hidden" name="tgl"  value="{{$inventory->tgl}}">
+
+                          <input type="hidden" name="produk_id"  value="{{$inventory->produk_id}}">
+
+                          <td>
+                            <input type="hidden" name="nama_produk" value="{{$inventory->nama_produk}}">
+                            {{$inventory->nama_produk}}</td>
+
+                          <td><input type="hidden" name="harga" value="{{$inventory->harga}}">
+                            {{$inventory->harga}}</td> 
+
+                          <td><input type="hidden" name="qty" value=" {{$inventory->qty}}">
+                            {{$inventory->qty}}</td>
+
+                          <td><input type="hidden" name="total" value="{{$inventory->total}}">
+                            {{$inventory->total}}</td>
+                          
+                          
+
+                    
+                        </tr>
                   @endforeach
                 </tbody>
   
@@ -366,29 +386,38 @@ nav{
 
       {{-- akhir tabel --}}
       
+      <p>pilih id penjualan</p>
+      <select name="id_pelanggan" >
+        <option >pilih</option>
+        <option>2548</option>
+      </select>
       
-    
+      <br>
+      <br>
       <div class="mb-3" style="display: flex; margin: ;">
        
 
         <div style="display: flex">
+
           
-          <div>
+          
+          {{-- <div>
             <h5>Nama Member</h5>
             <input type="num" class="form-control" name="namamember" placeholder="Masukkan Nama" aria-label="namamember" aria-describedby="basic-addon1">
           </div>
-        </div>
+        </div> --}}
 
         
       </div>
 
-      
-      <h5>Total Harga : Rp {{$total_harga}}.000</h5>
+        <div>
+          <h5>Total Harga : Rp {{$total_harga}}.000</h5>
 
-      {{-- <h5>Kembalian : Rp {{}}.000</h5> --}}
+          {{-- <h5>Kembalian : Rp {{}}.000</h5> --}}
 
-      <a href="proses_order" class="btn btn-primary" type="button">Order</a>
-    
+          <button class="btn btn-primary" type="submit">Order</a>
+        </div>
+      </form>
     
     
     </div>

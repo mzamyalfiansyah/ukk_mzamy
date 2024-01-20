@@ -214,7 +214,7 @@ nav{
 
 
 
-      <div style="margin-top: 10%; margin-left: 5%; width:70%; display: flex;">
+      <div style="margin-top: 10%; margin-left: 5%; width:70%; text-align: center; display: flex;">
 
         <div class="table-responsive table table-striped">
 
