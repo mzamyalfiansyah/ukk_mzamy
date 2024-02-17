@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\kasircontroller;
 use App\Http\Controllers\logincontroller;
+use App\Http\Controllers\penjualancontroller;
+use App\Http\Controllers\customercontroller;
 
 
 /*
@@ -48,11 +50,23 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/penjualan', [kasircontroller::class, 'penjualan']);
 
+    Route::get('/delete_inventory/{id}', [kasircontroller::class, 'delete_inventory']);
     
-    Route::post('/keranjang/{id}', [kasircontroller::class, 'keranjang']);
+    Route::post('/keranjang', [kasircontroller::class, 'keranjang']);
 
-    Route::post('proses_order/{id}', [kasircontroller::class, 'proses_order']);
+    Route::post('/proses_order', [kasircontroller::class, 'proses_order']);
 
+    Route::post('/checkout', [kasircontroller::class, 'checkout']);
+
+    Route::get('/detail_penjualan/{id}', [penjualancontroller::class, 'detail_penjualan']);
+
+    Route::get('/cetak/{id}', [penjualancontroller::class, 'cetak']);
+
+
+
+    Route::get('/edit_customer/{id}', [customercontroller::class, 'edit_customer']);
+
+    Route::post('/proses_update_customer/{id}', [customercontroller::class, 'proses_update_customer']);
 });
 
 

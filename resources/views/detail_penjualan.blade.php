@@ -7,10 +7,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="icon" href="/storage/image/LOGO.png">
     
-    <title>Dashboard</title>
+    
+    <link rel="icon" href="/storage/image/LOGO.png">
+
+    <title>Detail Penjualan</title>
 </head>
 
 <style>
@@ -141,7 +142,7 @@ nav{
        
   
             <li class="nav-item" >
-              <a href="dashboard" class="nav-link link-light" aria-current="page" style="background-color: rgb(173, 0, 0); border-radius: 5px;">
+              <a href="/dashboard" class="nav-link link-light" aria-current="page" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
                   <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
                 </svg>
@@ -154,7 +155,7 @@ nav{
   
   
             <li>
-              <a href="order" class="nav-link link-light">
+              <a href="/order" class="nav-link link-light" border-radius: 5px;>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
                   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
                 </svg>
@@ -181,11 +182,11 @@ nav{
                 Customers
               </a>
             </li>
-
+            
 
             <li>
-              <a href="penjualan" class="nav-link link-light">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
+              <a href="/penjualan" class="nav-link link-light">
+                <svg xmlns="http://www.w3.org/2000/svg"   width="16" height="16" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
                   <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
                   <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
                 </svg>
@@ -193,8 +194,18 @@ nav{
               </a>
             </li>
 
+                    <li style="margin-left: 10%; width: 75%;">
+                        <a href="/penjualan" class="" style=" border-radius: 5px;  color: rgb(255, 131, 131); text-decoration: none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                            </svg>
+                        Detail Penjualan
+                        </a>
+                    </li>
 
-            <hr style="margin-top: 70%;">
+
+            <hr style="margin-top: 59%;">
 
             <li>
               <a href="/logout" class="nav-link link-light" >
@@ -205,9 +216,6 @@ nav{
                 Logout
               </a>
             </li>
-
-
-            
   
   
           </ul>
@@ -215,93 +223,153 @@ nav{
          
         </div>
 
+       
+
+<br>
+<br>
+<br>
+
+      <div class="container" style=" background-color: rgb(226, 226, 226);">
+
+<br>
+<br>
+<br>
+<br>
+          
+
+ 
+          <div class="container" style="width: 35%; font-size: 80%; height: 80%; padding: 2%; background-color: rgb(255, 255, 255); box-shadow:0px 0px 5px rgb(129, 129, 129);">
+            
+           
+
+            <div style="display: flex">
+              <p style="font-family:unset; font-weight: bold; color: grey;">Detail Transaksi</p>
+            
+              <span class="zkasir" style="display: flex; margin-left: 35%;  ">
+                <h3 class="zkasir1">Z-</h3>
+                <h3 style="color: black">Kasir</h3>
+              </span>
+            </div>
+            
+            <p style="font-size: 80%; border-bottom: 1px solid rgb(182, 182, 182); color: rgb(122, 122, 122);">Berikut detail dari transaksi, anda dapat mencetak atau menyimpannya.</p>
+            
+
+            {{-- <span  style="background-color: rgb(5, 137, 189); width: 50%; height: 50%;">
+              <svg style="color: white" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+                <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0"/>
+                <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
+              </svg>  
+            </span> --}}
 
 
-
-
-      <div style="margin-top: 10%; margin-left: 5%; width:70%; display: flex;">
-
-
-
-        <div style="width: 45%; background-color: rgb(182, 0, 0); height: 30%; border-radius: 15px; color: rgb(255, 135, 135);">
-
-          <div style="background-color: rgb(94, 0, 0); height: 40%; color: rgb(255, 135, 135);  border-top-left-radius: 15px;
-          border-top-right-radius: 15px;">
-            <h2>Total Admin</h2>
+            <img src="/storage/image/checkbox.png" style="width: 10%;">
 
             
-          </div>
-          <div style="display: flex;">
-            <h2 style="margin-left: 10%; font-size: 65px;">{{$jumlah_admin}}</h2>
-            <div>
-              <svg style="margin-left: 50%; width: 42%;" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
-                <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
-                </svg>
-              </div>
+              <img style="width: 10%; margin-left: 50%;" src="/storage/image/barcode.png" alt="">
+              <img style="width: 10%;" src="/storage/image/barcode.png" alt="">
+              <img style="width: 10%;" src="/storage/image/barcode.png" alt="">
+           
 
-          </div>
+
+            <br>
+            <br>
+
+            {{-- table --}}
+
+            <?php $no=1 ?>
+
+    
+         
+
+
+            <table class="table" style="font-size: 70%; border: 1px solid rgb(179, 179, 179); text-align:center;" >
+              <thead style="height: 10%">
+                <tr>
+                  <th scope="col" >No</th>
+                  <th scope="col" >Produk</th>
+                  <th scope="col" >Harga Satuan</th>
+                  <th scope="col" >Qty</th>
+                  <th scope="col" >Subtotal</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($detail as $detail)
+                <tr>
+                    <td> {{ $no++ }}</td>
+                    <td> {{$detail->produk_id}} - {{$detail->nama_produk}}</td>
+                    <td> {{$detail->harga}}</td>
+                    <td> {{$detail->qty}}</td>
+                    <td> {{ $detail->qty * $detail->harga}}</td>
+               
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+
+            {{-- akhir table --}}
+            
+            
+
+            <div style="display: flex">
+                @foreach ($penjualan as $penjualan)    
+                  <li style="list-style: none; font-size: 70%;">
+                      <p>Penjualan ID : {{$penjualan->penjualan_id}}</p>
+                     
+                      <p>Status : {{$penjualan->status}}</p>
+                    <p> Tanggal Penjualan : {{$penjualan->created_at}}</p>
+                  </li>
+                @endforeach
+
+                <li style="list-style: none; font-size: 70%; margin-left: 25%;">
+                  <p>Total harga : {{$penjualan->total_harga}}</p>
+                  <p> Diskon : -</p>
+                  <p>Bayar : -</p>
+                  <p>Kembalian : -</p>
+
+                
+                 
+              </li>
+
+            </div>
+
+
+
+            <a href="/cetak/{{$penjualan->penjualan_id}}" style="margin-left: 40%" class="btn btn-primary" target="blank">Cetak</a>
+
+           
+            
+            
+
+<p style="text-align: center">Terima kasih sudah membeli di toko kami</p>
+
+<hr>
+
+          <p style="font-size: 80%; color: grey; font-weight: bold;">CopyRight © Z-Kasir Hak cipta di di dilindungi</p>
+          
+
+
         </div>
 
 
-        <div style="width: 45%; background-color: rgb(0, 182, 82); height: 30%; border-radius: 15px; color: rgb(145, 255, 194); margin-left: 5%;">
 
-          <div style="background-color: rgb(0, 94, 55); height: 40%; color: rgb(145, 255, 194);  border-top-left-radius: 15px;
-          border-top-right-radius: 15px;">
-            <h2>Total Penjualan</h2>
-
-            
-          </div>
-          <div style="display: flex;">
-            <h2 style="margin-left: 10%; font-size: 65px;">{{$total_penjualan}}</h2>
-            <div>
-              <svg style="margin-left: 50%; width: 42%;" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
-                <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z"/>
-              </svg>
-              </div>
-
-          </div>
-        </div>
-
-
-        <div style="width: 45%; background-color: rgb(0, 176, 182); height: 30%; border-radius: 15px; color: rgb(131, 235, 253); margin-left: 5%;">
-
-          <div style="background-color: rgb(0, 83, 94); height: 40%; color: rgb(131, 235, 253);  border-top-left-radius: 15px;
-          border-top-right-radius: 15px;">
-            <h2>Total Pelanggan</h2>
-
-            
-          </div>
-          <div style="display: flex;">
-            <h2 style="margin-left: 10%; font-size: 65px;">{{$total_pelanggan}}</h2>
-            <div>
-              <svg style="margin-left: 50%; width: 42%;" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
-                <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
-                </svg>
-              </div>
-
-          </div>
-        </div>
-
-
-        
-
-
-
-        
       </div>
 
 
-      
+
+
+
+
+
+
+
+
+
+
+
+
         
-
-     
-
-
-
-</div>
-
-
-</div>
-
+        
+    </div>
 </body>
 </html>

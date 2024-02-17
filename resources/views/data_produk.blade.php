@@ -7,6 +7,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="icon" href="/storage/image/LOGO.png">
     
     <title>Data Produk</title>
 </head>
@@ -392,11 +394,98 @@
                   </div>
                 </div>
               </div>
+
+
+
+
+
+
+              
           </p>
 
 
 
+          <p>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Produk Dihapus
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive" viewBox="0 0 16 16">
+                <path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5zm13-3H1v2h14zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+              </svg>
+            </button>
+            
 
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Tambahkan produk</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+
+                    <form action="/proses_barang" method="POST" >
+                      @method('POST')
+                      @csrf
+                     
+                     
+              
+                      
+                      <div class="tambah">
+                          <div class="mb-3">
+                            <label for="produk">Nama Produk</label>
+                            <input type="text" class="form-control" name="nama_produk" placeholder="Nama barang" aria-label="username" aria-describedby="basic-addon1">
+                          </div>
+
+                          <div class="mb-3">
+                              <label for="produk">Harga</label>
+                              <input   type="text" class="form-control" name="harga" placeholder="Harga" aria-label="harga" aria-describedby="basic-addon1">
+                          </div>
+
+                          <div class="mb-3">
+                              <label for="produk">Stok</label>
+                              <input   type="number" class="form-control" name="stok" placeholder="Stok" aria-label="stok" aria-describedby="basic-addon1">
+                          </div>
+                       
+
+                      </div>
+
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                      </div>
+      
+                      </div>
+      
+                    
+                      <div>
+                          
+                              
+                            
+                          
+      
+                      
+                              
+                      
+                    </div>
+      
+                 
+              
+                  
+
+                    </div>
+
+                   
+                  </form>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+            
+        </p>
 
 
 

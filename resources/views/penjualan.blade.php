@@ -9,6 +9,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <link rel="icon" href="/storage/image/LOGO.png">
+
     <title>Penjualan</title>
 </head>
 
@@ -223,6 +225,9 @@
       <br>
       <br>
       <br>
+
+      <h2 style="margin-left: 10%; font-family:'Times New Roman', Times, serif">Data Penjualan</h2>
+
       <br>
       <br>
       <div class="table-responsive table table-striped" style=" margin-left: 10%; width: 80%; text-align: center;">
@@ -231,10 +236,15 @@
             <thead>
                 <tr class="table-active">
                   <th scope="col">No</th>
-                  <th scope="col">Nama Produk</th>
+                  <th scope="col">ID Penjualan</th>
+             
                   <th scope="col">Tanggal</th>
-                  <th scope="col">Qty</th>
-                  <th scope="col">Total</th>
+                  <th scope="col">Total Harga</th>
+                  <th scope="col">Status</th>
+                
+                  <th scope="col"></th>
+
+                  
                   
                   
 
@@ -243,20 +253,33 @@
               </thead>
               <tbody>
 
-
                 <?php $no=1 ?>
                 @foreach($penjualan as $tampil_penjualan)
                 <tr>
                   <td>{{ $no++ }}</td>
-                  <td>{{$tampil_penjualan->nama_produk}}</td>
+                  <td>{{$tampil_penjualan->penjualan_id}}</td>
+                 
                   <td>{{$tampil_penjualan->tanggal_penjualan}}</td>
-                  <td>{{$tampil_penjualan->qty}}</td>
                   <td>{{$tampil_penjualan->total_harga}}</td>
-                  
-                  
+                  <td>{{$tampil_penjualan->status}}</td>
+            
+                
+                  <td>
+                    <a href="/detail_penjualan/{{$tampil_penjualan->penjualan_id}}" type="submit" class="btn btn-primary btn-sm" style="margin-left: 10%;">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                          <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                          <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                        </svg>
+                  </a>
+                  </td>
 
+                  
+                    
+                    
+                    @endforeach
                 </tr>
-                @endforeach
+              
+                
               </tbody>
 
               

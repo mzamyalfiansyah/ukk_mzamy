@@ -8,6 +8,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
+    <link rel="icon" href="/storage/image/LOGO.png">
+
     <title>Order</title>
 </head>
 
@@ -217,8 +219,8 @@ nav{
 
 
         <div style="margin-top: 5%; margin-left: 5%; width:70%; ">
-          <br>
-          <h3>Keranjang</h3>
+          
+          <h3 >Checkout</h3>
 
           <br>
 
@@ -258,34 +260,41 @@ nav{
                                 
             <?php $no=1 ?>
                       
-                        @foreach($tampil_produk as $produk)
+                        
+            @foreach($tampil_produk as $produk)
             
-                        <form action="/keranjang/{{$produk->produk_id}}" method="post">
-                          @method('post')
-                          @csrf 
+                      
                                 <tr>
+                                  <form action="/keranjang" method="post">
+                                    @method('post')
+                                    @csrf 
                                     <td>{{ $no++ }}</td>
                                     <td>
                                       <input type="hidden" name="produk_id" value="{{$produk->produk_id}}">
                                       {{$produk->produk_id}}
                                     </td>
 
+                                    <input type="hidden" name="penjualan_id" value="{{$id_jual}}">
                                     
-                                    <td>{{$produk->nama_produk}}</td>
+                                    <td>
+                                      <input type="hidden" name="nama_produk"  value="{{$produk->nama_produk}}">
+                                      {{$produk->nama_produk}}</td>
 
                                     <td>
-                                     
+                                      <input type="hidden" name="harga" value="{{$produk->harga}}">
                                       {{$produk->harga}}
                                     </td>
+                                   
+                                      {{-- <input type="hidden" name="pelanggan_id" value="{{$id}}"> --}}
                                   
+                                   
                                     <td>{{$produk->stok}}</td>
 
-                                        
-
-                                    <td style="width: 10%">
-                                      <p>Qty</p>
-                                      <input   type="number" class="form-control" name="qty" placeholder="Qty" aria-label="idmember" aria-describedby="basic-addon1" required>
+                                    <td>
+                                      <input type="number" name="qty" class="form-control">
+                                      
                                     </td>
+
                                     <td>
                                       <button type="submit" class="btn btn-primary">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
@@ -293,22 +302,30 @@ nav{
                                         </svg>
                                       </button>
                                     </td>
+                                  </form>
                                 </tr>
-                          </form>
-                        @endforeach 
+                                    @endforeach
+                               
+                              
+                                
+                              
                       
                     </tbody>           
-                </table>       
+                </table>     
+               
               </div>
-                 
+            
 
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                  
+                  <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Close">
                
                 </div>
               </div>
             </div>
           </div>
+      
           {{-- Modal --}}
         
 
@@ -325,6 +342,10 @@ nav{
                     <th scope="col">Harga Satuan</th>
                     <th scope="col">Qty</th>
                     <th scope="col">Total</th>
+                    <th scope="col"></th>
+                    
+
+
                    
                     
   
@@ -332,41 +353,74 @@ nav{
   
                 </thead>
                 <tbody>
+                  <?php $no=1 ?>
+                  <?php $total_harga = 0 ?>
 
-                  @foreach($tampil_inventory as $inventory)
-                    <form action="/proses_order/{{$inventory->inventory_id}}" method="post">
-                      @method('post')
-                      @csrf
-                      <?php $no=1 ?>
+                @foreach($tampil_inventory as $inventory)
+                     
                       
                         <tr>
-                          <td>{{ $no++ }}</td>
+                          <td>{{$no++}}</td>
                           
+                          <input type="hidden" value="{{$inventory->inventory_id}}">
                           
-                          <input type="hidden" name="inventory_id" value="{{$inventory->inventory_id}}">
-                            
-                          <input type="hidden" name="tgl"  value="{{$inventory->tgl}}">
-
-                          <input type="hidden" name="produk_id"  value="{{$inventory->produk_id}}">
-
+                          <input type="hidden" name="produk_id" value="{{$inventory->produk_id}}">
                           <td>
-                            <input type="hidden" name="nama_produk" value="{{$inventory->nama_produk}}">
+                            
                             {{$inventory->nama_produk}}</td>
 
-                          <td><input type="hidden" name="harga" value="{{$inventory->harga}}">
+                          <td>
                             {{$inventory->harga}}</td> 
 
-                          <td><input type="hidden" name="qty" value=" {{$inventory->qty}}">
-                            {{$inventory->qty}}</td>
+                          <td>
+                            {{$inventory->qty}}
+                            <input type="hidden" name="qty" value="{{$inventory->qty}}">
+                          </td>
 
-                          <td><input type="hidden" name="total" value="{{$inventory->total}}">
-                            {{$inventory->total}}</td>
-                          
-                          
+                          <td>
+                            {{$inventory->total_harga}}
+                           
+                          </td>
 
+                            
+                         
+
+                              
+                          <td>
+                                  <button type="submit" class="btn btn-danger btn-sm"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                          <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                                          <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                                      </svg>
+                                    </button>
+                                  
+                                   
+                                  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h1 class="modal-title fs-5" id="staticBackdropLabel">Yakin ingin menghapus?</h1>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                          ini mungkin tidak dapat dikembalikan!!
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Batal</button>
+                                          
+                                          <a href="/delete_inventory/{{$inventory->inventory_id}}" type="submit" class="btn btn-danger remove">Hapus</a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>  
+                              </td>
+                     
+      <?php $total_harga = $total_harga + $inventory->total_harga ?>
+                            
                     
                         </tr>
                   @endforeach
+                
                 </tbody>
   
                 
@@ -379,46 +433,89 @@ nav{
   
       
       
-  
       
   
       </div>
 
       {{-- akhir tabel --}}
+        <div style="display: flex; margin-left: 67%;">
+          <h5>Total Harga: {{number_format($total_harga,0, '.','.')}}</h5> 
+
+              {{-- <h5>Rp {{$total_harga}}</h5> --}}
+            
+        </div>
+
       
-      <p>pilih id penjualan</p>
-      <select name="id_pelanggan" >
-        <option >pilih</option>
-        <option>2548</option>
-      </select>
       
-      <br>
-      <br>
       <div class="mb-3" style="display: flex; margin: ;">
        
 
-        <div style="display: flex">
+        
 
           
           
-          {{-- <div>
-            <h5>Nama Member</h5>
-            <input type="num" class="form-control" name="namamember" placeholder="Masukkan Nama" aria-label="namamember" aria-describedby="basic-addon1">
-          </div>
-        </div> --}}
+           {{-- <div>
+           
+              <p>ID Pelanggan</p>
+              <input   type="text" class="form-control" name="pelanggan_id" placeholder="2548" aria-label="idmember" aria-describedby="basic-addon1" required>
+           
+          </div> --}}
 
         
       </div>
 
         <div>
-          <h5>Total Harga : Rp {{$total_harga}}.000</h5>
+          
 
           {{-- <h5>Kembalian : Rp {{}}.000</h5> --}}
+          
+            
+          
 
-          <button class="btn btn-primary" type="submit">Order</a>
+
+          
+
         </div>
-      </form>
-    
+        
+      
+        
+          <form action="/checkout" method="post">
+            @method('post')
+            @csrf
+                
+                  <input type="hidden" name="penjualan_id" value="{{$id_jual}}">
+                  <input type="hidden" name="total_harga" value="{{$total_harga}}">
+                <div style="display: flex;">
+                  <div>
+                    <label>Masukkan Nama Pelanggan</label>
+                    <select style="" class="form-select" class="pelanggan" name="pelanggan_id" required >
+                      
+                      <option value="Nama Pelanggan"></option>
+                        @foreach ($pelanggan as $pelanggan)
+                              <option value="{{$pelanggan->pelanggan_id}}">{{$pelanggan->nama_pelanggan}}</option>
+                        @endforeach
+                    </select>
+                   
+                  </div>
+              
+                  <div style="margin-left: 40%">
+
+<br>
+                    
+                  </div>
+                  
+                </div>
+                  {{-- <input type="hidden" name="status" value="{{$request = $penjualan->status}}"> --}}
+  <br>
+                  <button type="submit" class="btn btn-primary">CheckOut</button>
+            
+           
+          </form>
+        
+        
+       
+<br>
+       
     
     </div>
 

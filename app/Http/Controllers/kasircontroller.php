@@ -17,7 +17,7 @@ class kasircontroller extends Controller
         $admin = DB::table('admin')->get();
         $jumlah_admin = count($admin);
 
-        $penjualan = DB::table('pelanggan')->get();
+        $penjualan = DB::table('penjualan')->get();
         $total_penjualan= count($penjualan);
 
         $pelanggan = DB::table('pelanggan')->get();
@@ -39,7 +39,7 @@ class kasircontroller extends Controller
 
     function data_barang(){
 
-        $produk = DB::table('produk')->get();
+        $produk = DB::table('produk')->where('status', '=' ,'tersedia')->get();
 
     
         return view('data_produk',  ['tampil_produk' => $produk]);
@@ -49,7 +49,6 @@ class kasircontroller extends Controller
 
     function proses_barang(request $request){
 
-      
 
         $nama_produk = $request->nama_produk;
         $harga = $request->harga;
@@ -62,95 +61,134 @@ class kasircontroller extends Controller
             'stok' => $stok
            
         ]);
+
+        
         return redirect('/data_produk');
     }
     
 
 
-    function order(){
+    function order(request $request){
         
 
-        $produk = DB::table('produk')->get();
+        $produk = DB::table('produk')->where('status', '=', 'tersedia')->get();
+        $pelanggan = DB::table('pelanggan')->get();
+        $penjualan = DB::table('penjualan')->latest()->first();
 
-        $inventory = DB::table('inventory')
-        ->join('produk', 'inventory.produk_id', '=', 'produk.produk_id')
-        ->select('inventory.inventory_id','inventory.produk_id','produk.nama_produk', 'produk.harga', 'inventory.qty', 'inventory.total', 'inventory.tgl' )->get();
+        // $id = $pelanggan->pelanggan_id = 0;
 
-        $harga = DB::table('inventory')->get('total');
-        $total_harga = collect($harga)->sum('total');
+        $id_jual = '';
 
-        return view('order',  ['tampil_produk' => $produk, 'tampil_inventory' => $inventory, 'total_harga' => $total_harga]);
+        if(!$penjualan){
+            $id_jual = '1';
+        }else{
+            if($penjualan->status == "selesai"){
+                $id_jual = $penjualan->penjualan_id + 1;
+            }else{
+                $id_jual = $penjualan->penjualan_id;
+            }
+        }
+
+        $inventory = DB::table('inventory')->where('penjualan_id', $id_jual)
+        ->join('produk', 'inventory.produk_id', '=', 'produk.produk_id')->get();
+
+        // $harga = DB::table('inventory')->get('total');
+        // $total_harga = collect($harga)->sum('total');
+
+        
+
+      
+
+
+        return view('order', ['tampil_produk' => $produk, 'tampil_inventory' => $inventory, 
+                    'pelanggan' => $pelanggan,'id_jual' => $id_jual,  'tampil_penjualan' => $penjualan]);
         
         
     }
 
-    function proses_order(request $request, $id){
+   
+    function checkout(request $request){
 
-        $produk_id = $request->produk_id;
-        $nama_produk = $request->nama_produk;
-        $tgl = $request->tgl;
-        $harga = $request->harga;
-        $qty = $request->qty;
-        $total = $request->total;
-        $pelanggan_id = $request->id_pelanggan;
+        $update_data = DB::table('penjualan')->where('penjualan_id', $request->penjualan_id)->update([
+            'status' => 'selesai',
+            'total_harga' => $request->total_harga,
+            'pelanggan_id' => $request->pelanggan_id
 
-        DB::table('penjualan')->insert([
             
-            'produk_id' => $produk_id,
-            'nama_produk' => $nama_produk,
-            'tanggal_penjualan' => $tgl,
-            'harga' => $harga,
-            'qty' => $qty,
-            'total_harga' => $total,
-            'pelanggan_id' => $pelanggan_id
-
         ]);
 
-        DB::table('inventory')->delete();
 
-        return redirect('penjualan');
+
+        return redirect()->back();
     }
 
+    function delete_inventory(request $request, $id){
 
-    function keranjang(request $request, $id){
+        // return $request->all();
 
-        $produk_id = $request->produk_id;
-        $qty = $request->qty;
-        $total = $request->total;
-        $date = now()->format('Y-m-d');
 
-        $p = DB::table('produk')->where('produk_id', $produk_id)->first();
+
+        $hapus = DB::table('inventory')->where('inventory_id','=', $id)->delete();
 
        
-        DB::table('inventory')->insert([
-        
-            'produk_id' => $produk_id,
+      
+            return redirect()->back();
+    }
 
-            'qty' => $qty,
-            'total' => $qty * $p->harga,
-            'tgl' => $date
-           
+
+    function keranjang(request $request){
+
+        $produk = DB::table('produk')->where('produK_id', $request->produk_id)->first();
+        // return $request->all();
+
+        $data_penjualan = DB::table('penjualan')->where('penjualan_id', $request->penjualan_id)->first();
+        if(!$data_penjualan){
+            $penjualan = DB::table('penjualan')->insert([
+                'penjualan_id' => $request->penjualan_id,
+                'tanggal_penjualan' => date('Y-m-d'),
+                'total_harga' => 0,
+                'pelanggan_id' => 2547,
+                'status' => 'di proses'
+            ]);
+        } if($produk->produk_id - $request->qty < 0){
+            
+            return redirect()->back()->with("Stok tidak mencukupi");
+        
+        }else{
+            $detail_penjualan = DB::table('inventory')->insert([
+                'produk_id' => $request->produk_id,    
+                'penjualan_id' => $request->penjualan_id,
+                'qty' => $request->qty,
+                'total_harga' => $request->qty * $produk->harga
+            ]);
+        }
+
+        
+        $update_stok = DB::table('produk')->where('produk_id', $request->produk_id)->update([
+            'stok' => $produk->stok - $request->qty
         ]);
-        return redirect('/order');
+    
+        
+
+       
+
+        return redirect()->back();
 
     }
 
-    
+
+
+
 
     
 
-    function tampilcart($id){
-
-        
-
-        return view('layout/tampilcart', []);
-
-        
-    }
+ 
 
 
     function proses_hapus($id){
-        DB::table('produk')->where('produk_id', '=', $id)->delete();
+        DB::table('produk')->where('produk_id', '=', $id)->update([
+            'status' => 'dihapus'
+        ]);
         
         return redirect()->back();
     }
@@ -210,6 +248,9 @@ class kasircontroller extends Controller
     function penjualan(){
 
         $tampil_penjualan = DB::table('penjualan')->get();
+
+        // $harga = DB::table('inventory')->get('total');
+        // $total_harga = collect($harga)->sum('total');
 
         return view('penjualan', ['penjualan' => $tampil_penjualan]);
     }
