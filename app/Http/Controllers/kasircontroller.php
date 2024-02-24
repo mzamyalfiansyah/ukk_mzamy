@@ -23,12 +23,37 @@ class kasircontroller extends Controller
         $pelanggan = DB::table('pelanggan')->get();
         $total_pelanggan = count($pelanggan);
 
+
+
+        $januari = DB::table('penjualan')->whereMonth('created_at', '=', '01')->get();
+        $tampil_januari= count($januari);
+
+        $februari = DB::table('penjualan')->whereMonth('created_at', '=', '02')->get();
+        $tampil_februari = count($februari);
+
+        $maret = DB::table('penjualan')->whereMonth('created_at', '=', '03')->get();
+        $tampil_maret = count($maret);
+
+        $april = DB::table('penjualan')->whereMonth('created_at', '=', '04')->get();
+        $tampil_april = count($april);
+
+        $mei = DB::table('penjualan')->whereMonth('created_at', '=', '05')->get();
+        $tampil_mei= count($mei);
+        
+
         // $harga = DB::table('produk')->get('harga');
         // $total_harga = collect($harga)->sum('harga');
 
 
     
-        return view('dashboard', ['jumlah_admin' => $jumlah_admin, 'total_penjualan' => $total_penjualan, 'total_pelanggan' => $total_pelanggan]);
+        return view('dashboard', ['jumlah_admin' => $jumlah_admin, 'total_penjualan' => $total_penjualan, 'total_pelanggan' => $total_pelanggan,
+
+                                    // tampil grafik
+                                    'tampil_januari' => $tampil_januari,
+                                    'tampil_februari' => $tampil_februari,
+                                    'tampil_maret' => $tampil_maret,
+                                    'tampil_april' => $tampil_april,
+                                    'tampil_mei' => $tampil_mei,]);
     }
 
     function proses_cart($id){
@@ -41,8 +66,9 @@ class kasircontroller extends Controller
 
         $produk = DB::table('produk')->where('status', '=' ,'tersedia')->get();
 
+        $produk_dihapus = DB::table('produk')->where('status', '=' ,'dihapus')->get();
     
-        return view('data_produk',  ['tampil_produk' => $produk]);
+        return view('data_produk',  ['tampil_produk' => $produk, 'produk_dihapus' => $produk_dihapus]);
        
     }
 
@@ -109,6 +135,12 @@ class kasircontroller extends Controller
    
     function checkout(request $request){
 
+        $produk = DB::table('produk')->where('produK_id', $request->produk_id)->first();
+
+        $update_stok = DB::table('produk')->where('produk_id', $request->produk_id)->update([
+            'stok' => $request->stok - $request->qty
+        ]);
+
         $update_data = DB::table('penjualan')->where('penjualan_id', $request->penjualan_id)->update([
             'status' => 'selesai',
             'total_harga' => $request->total_harga,
@@ -117,20 +149,28 @@ class kasircontroller extends Controller
             
         ]);
 
-
+        
 
         return redirect()->back();
     }
 
     function delete_inventory(request $request, $id){
+        // $request->stok;
+        // $request->qty;
+        //  return $request->all();
+        // $produk = DB::table('produk')->get();
 
-        // return $request->all();
-
-
-
-        $hapus = DB::table('inventory')->where('inventory_id','=', $id)->delete();
-
+        // $jumlah = sum($request->stok, $request->qty);
        
+        // $update = DB::table('produk')->where('produk_id', $request->produk_id)->update([
+        //     'stok' => $jumlah
+        // ]);
+
+            $hapus = DB::table('inventory')->where('inventory_id','=', $id)->delete();
+        
+
+        
+
       
             return redirect()->back();
     }
@@ -150,9 +190,9 @@ class kasircontroller extends Controller
                 'pelanggan_id' => 2547,
                 'status' => 'di proses'
             ]);
-        } if($produk->produk_id - $request->qty < 0){
+        } if($produk->stok - $request->qty < 0){
             
-            return redirect()->back()->with("Stok tidak mencukupi");
+            return redirect()->back()->with("error", "Stok tidak mencukupi");
         
         }else{
             $detail_penjualan = DB::table('inventory')->insert([
@@ -164,9 +204,7 @@ class kasircontroller extends Controller
         }
 
         
-        $update_stok = DB::table('produk')->where('produk_id', $request->produk_id)->update([
-            'stok' => $produk->stok - $request->qty
-        ]);
+        
     
         
 
@@ -224,8 +262,9 @@ class kasircontroller extends Controller
     function tampil_customer(){
 
         $customer = DB::table('pelanggan')->get();
+        $jumlah = count($customer);
 
-        return view('customer', ['tampil_pelanggan' => $customer]);
+        return view('customer', ['tampil_pelanggan' => $customer, 'jumlah' => $jumlah]);
     }
 
     function proses_customer(request $request){

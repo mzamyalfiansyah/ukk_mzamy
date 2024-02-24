@@ -215,22 +215,45 @@ nav{
 
 
 
+        
 
-      <div style="margin-top: 10%; margin-left: 5%; width:70%; text-align: center; display: flex;">
 
-        <div class="table-responsive table table-striped">
+      <div style="margin-top: 5%; margin-left: 5%; width:70%; ">
+
+        <br>
+        <h4 style="font-family:Arial, Helvetica, sans-serif">Daftar Member {{$jumlah}}</h4>
+        <br>
+
+        <div class="table-responsive table table-striped" style="height: 65%">
 
                 
 
-            <table class="table" style="border: 2px solid rgb(148, 148, 148);">
+            <table class="table" style="height: 45%;">
             
                 <thead>
                     <tr class="table-active">
                     <th scope="col">No</th>
+
                     <th>ID</th>
-                    <th scope="col">Nama Pelanggan</th>
-                    <th scope="col">Alamat</th>
-                    <th scope="col">Nomor Hp</th>
+
+                    <th scope="col">
+                      <svg style="color: green" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                      </svg>
+                      Nama Pelanggan</th>
+
+                    <th scope="col">
+                      <svg style="color: green" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                      </svg>
+                      Alamat</th>
+
+                    <th scope="col">
+                      <svg style="color: green" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+                        <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+                      </svg>
+                      Nomor Hp</th>
                     
 
                     </tr>
@@ -247,7 +270,7 @@ nav{
             
                                 <tr>
                                     <td>{{ $no++ }}</td>
-                                    <td> {{$customer->pelanggan_id}} </td>
+                                    <td style="color: brown"> {{$customer->pelanggan_id}} </td>
                                     <td>{{$customer->nama_pelanggan}}</td>
                                     <td>{{$customer->alamat}}</td>
                                     <td>{{$customer->no_telepon}}</td>
@@ -279,61 +302,64 @@ nav{
 
         
         
+                      
+                      
 
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-
-                        <p>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Tambahkan Pelanggan</button>
-                            
-
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Tambahkan Pelanggan</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                  </div>
-                                  <div class="modal-body">
-
-                                    <form action="proses_customer" method="post">
-                                      @method('post')
-                                      @csrf
-
-                                      <div class="mb-3">
-                                        <label for="recipient-name" class="col-form-label">Nama</label>
-                                        <input type="text" class="form-control" id="recipient-name" name="nama_pelanggan" placeholder="Masukkan nama">
-                                      </div>
-
-                                      <div class="mb-3">
-                                        <label for="message-text" class="col-form-label">Alamat</label>
-                                        <input class="form-control" id="message-text" name="alamat" placeholder="Masukkan alamat">
-                                      </div>
-
-                                      <div class="mb-3">
-                                        <label for="message-text" class="col-form-label">Nomor</label>
-                                        <input type="tel" class="form-control"  id="message-text" name="no_telepon" placeholder="Masukkan nomor">
-                                      </div>
-                                    
-
-                                  </div>
-
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">batal</button>
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
-                                  </div>
-                                </form>
-                                </div>
-                              </div>
-                            </div>
-                        </p>
+                        
 
     
 
             </div>
     
+
+
+
+            <p>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Tambahkan Pelanggan</button>
+              
+
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Tambahkan Pelanggan</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                      <form action="proses_customer" method="post">
+                        @method('post')
+                        @csrf
+
+                        <div class="mb-3">
+                          <label for="recipient-name" class="col-form-label">Nama</label>
+                          <input type="text" class="form-control" id="recipient-name" name="nama_pelanggan" placeholder="Masukkan nama">
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="message-text" class="col-form-label">Alamat</label>
+                          <input class="form-control" id="message-text" name="alamat" placeholder="Masukkan alamat">
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="message-text" class="col-form-label">Nomor</label>
+                          <input type="tel" class="form-control"  id="message-text" name="no_telepon" placeholder="Masukkan nomor">
+                        </div>
+                      
+
+                    </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">batal</button>
+                      <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                  </form>
+                  </div>
+                </div>
+              </div>
+          </p>
+
+
 
 
 

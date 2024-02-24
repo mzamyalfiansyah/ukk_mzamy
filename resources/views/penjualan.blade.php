@@ -229,9 +229,9 @@
       <h2 style="margin-left: 10%; font-family:'Times New Roman', Times, serif">Data Penjualan</h2>
 
       <br>
-      <br>
-      <div class="table-responsive table table-striped" style=" margin-left: 10%; width: 80%; text-align: center;">
-        <table class="table" style="border: 2px solid rgb(148, 148, 148);">
+    
+      <div class="table-responsive table table-striped" style=" margin-left: 10%; width: 80%; text-align: center; height: 65%;">
+        <table class="table" style="border: 2px solid rgb(148, 148, 148); ">
           
             <thead>
                 <tr class="table-active">

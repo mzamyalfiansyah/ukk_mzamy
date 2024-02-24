@@ -50,7 +50,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/penjualan', [kasircontroller::class, 'penjualan']);
 
-    Route::get('/delete_inventory/{id}', [kasircontroller::class, 'delete_inventory']);
+    Route::post('/delete_inventory/{id}', [kasircontroller::class, 'delete_inventory']);
     
     Route::post('/keranjang', [kasircontroller::class, 'keranjang']);
 

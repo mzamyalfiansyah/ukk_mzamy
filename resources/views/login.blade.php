@@ -117,7 +117,19 @@
 
 <body>
     <div class="">
+
+        @if(session()->has('error'))
+
+            <div class="alert alert-danger">
+                {{session()->get('error') }}
+            </div>
+                            
+            @endif
+       
         <div class="container">
+
+           
+            
 
             <div class="judul" >
 
@@ -125,15 +137,23 @@
 
             </div>
 
+
+            
+
+
             <div class="isi"> 
                 <img src="storage/image/login.jpg" alt="">
 
                 <div class="box" >
                     
-
                     
 
                     <form action="/proses_login" method="POST" >
+
+                    
+                    
+
+
                         @method('POST')
                         @csrf
                         <div class="zkasir" style="display: flex; justify-content:center; ">

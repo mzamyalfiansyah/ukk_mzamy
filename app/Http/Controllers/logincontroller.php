@@ -22,7 +22,7 @@ class logincontroller extends Controller
             if(Auth::attempt($login)){
                 return redirect('dashboard');
             }else{
-                return redirect('login')->with("error", "Username atau Password salah");
+                return redirect('login')->with('error', 'Username atau Password salah');
             }
 
     

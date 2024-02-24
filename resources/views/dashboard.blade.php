@@ -92,21 +92,8 @@ nav{
             <h3 class="zkasir2">Kasir</h3>
           </span>
 
-                <!-- Offcanvas Sidebar -->
-                <div style="background-color: rgb(22, 22, 22);" class="offcanvas offcanvas-start" id="demo">
-                    <div class="offcanvas-header" style="color: white;">
-
-                        <h1 class="offcanvas-title">Notifikasi</h1>
-                     
-                    </div>
-                    <div class="offcanvas-body">
-                    
-                    </div>
-                </div>
-        
-                <!-- Button to open the offcanvas sidebar -->
                 
-                    <img data-bs-toggle="offcanvas" data-bs-target="#demo" src="storage/image/ringing.png"  alt="">
+               
                 
 
                 
@@ -211,94 +198,140 @@ nav{
   
   
           </ul>
+
+
+          
           
          
         </div>
 
 
 
+        <div>
+
+          <div style="margin-top: 10%; margin-left: 5%;  display: flex;">
 
 
-      <div style="margin-top: 10%; margin-left: 5%; width:70%; display: flex;">
+            {{-- 1 --}}
+            <div style="width: 45%; background-color: rgb(182, 0, 0); height: 30%; border-radius: 15px; color: rgb(255, 135, 135);">
 
+                  <div style="background-color: rgb(94, 0, 0); height: 40%; color: rgb(255, 135, 135);  border-top-left-radius: 15px;
+                  border-top-right-radius: 15px;">
+                    <h2>Total Admin</h2>
 
+                    
+                  </div>
+                  <div style="display: flex;">
+                    <h2 style="margin-left: 10%; font-size: 65px;">{{$jumlah_admin}}</h2>
+                    <div>
+                      <svg style="margin-left: 50%; width: 42%;" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+                        <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
+                        </svg>
+                      </div>
 
-        <div style="width: 45%; background-color: rgb(182, 0, 0); height: 30%; border-radius: 15px; color: rgb(255, 135, 135);">
+                  </div>
+                </div>
 
-          <div style="background-color: rgb(94, 0, 0); height: 40%; color: rgb(255, 135, 135);  border-top-left-radius: 15px;
-          border-top-right-radius: 15px;">
-            <h2>Total Admin</h2>
+                {{-- 2 --}}
+                <div style="width: 45%; background-color: rgb(0, 182, 82); height: 30%; border-radius: 15px; color: rgb(145, 255, 194); margin-left: 5%;">
 
-            
-          </div>
-          <div style="display: flex;">
-            <h2 style="margin-left: 10%; font-size: 65px;">{{$jumlah_admin}}</h2>
-            <div>
-              <svg style="margin-left: 50%; width: 42%;" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
-                <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
-                </svg>
-              </div>
+                  <div style="background-color: rgb(0, 94, 55); height: 40%; color: rgb(145, 255, 194);  border-top-left-radius: 15px;
+                  border-top-right-radius: 15px;">
+                    <h2>Total Penjualan</h2>
 
-          </div>
-        </div>
+                    
+                  </div>
+                  <div style="display: flex;">
+                    <h2 style="margin-left: 10%; font-size: 65px;">{{$total_penjualan}}</h2>
+                    <div>
+                      <svg style="margin-left: 50%; width: 42%;" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+                        <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z"/>
+                      </svg>
+                      </div>
 
+                  </div>
+                </div>
 
-        <div style="width: 45%; background-color: rgb(0, 182, 82); height: 30%; border-radius: 15px; color: rgb(145, 255, 194); margin-left: 5%;">
+                {{-- 3 --}}
+                <div style="width: 45%; background-color: rgb(0, 176, 182); height: 30%; border-radius: 15px; color: rgb(131, 235, 253); margin-left: 5%;">
 
-          <div style="background-color: rgb(0, 94, 55); height: 40%; color: rgb(145, 255, 194);  border-top-left-radius: 15px;
-          border-top-right-radius: 15px;">
-            <h2>Total Penjualan</h2>
+                  <div style="background-color: rgb(0, 83, 94); height: 40%; color: rgb(131, 235, 253);  border-top-left-radius: 15px;
+                  border-top-right-radius: 15px;">
+                    <h2>Total Pelanggan</h2>       
+                  </div>
+                  
+                  <div style="display: flex;">
+                    <h2 style="margin-left: 10%; font-size: 65px;">{{$total_pelanggan}}</h2>
+                    <div>
+                      <svg style="margin-left: 50%; width: 42%;" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+                        <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
+                        </svg>
+                      </div>
 
-            
-          </div>
-          <div style="display: flex;">
-            <h2 style="margin-left: 10%; font-size: 65px;">{{$total_penjualan}}</h2>
-            <div>
-              <svg style="margin-left: 50%; width: 42%;" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
-                <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z"/>
-              </svg>
-              </div>
-
-          </div>
-        </div>
-
-
-        <div style="width: 45%; background-color: rgb(0, 176, 182); height: 30%; border-radius: 15px; color: rgb(131, 235, 253); margin-left: 5%;">
-
-          <div style="background-color: rgb(0, 83, 94); height: 40%; color: rgb(131, 235, 253);  border-top-left-radius: 15px;
-          border-top-right-radius: 15px;">
-            <h2>Total Pelanggan</h2>
-
-            
-          </div>
-          <div style="display: flex;">
-            <h2 style="margin-left: 10%; font-size: 65px;">{{$total_pelanggan}}</h2>
-            <div>
-              <svg style="margin-left: 50%; width: 42%;" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
-                <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
-                </svg>
-              </div>
-
-          </div>
-        </div>
-
-
+                  </div>
+                </div>
+            </div>
         
 
 
+<br>
+<br>
 
-        
+
+            {{-- grafik --}}
+
+            <div style="width: 50%; margin-left: 5%; ">
+
+              <h4>Data pejualan bulanan</h4>
+
+              <div>
+                <canvas id="myChart"></canvas>
+              </div>
+              
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+              
+              <script>
+                const ctx = document.getElementById('myChart');
+              
+                new Chart(ctx, {
+                  type: 'bar',
+                  data: {
+                    labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni','Juli','Agustus','September', 'Oktober', 'November','Desember'],
+                    datasets: [{
+                      label: 'terjual',
+                      data: [{{$tampil_januari}}, {{$tampil_februari}} , , , , , ,],
+                      borderWidth: 1
+                    }]
+                  },
+                  options: {
+                    scales: {
+                      y: {
+                        beginAtZero: true
+                      }
+                    }
+                  }
+                });
+              </script>
+
+            </div>
       </div>
 
 
-      
+
+
+          
+            </div>
+
+            
         
-
+             
      
+            
 
 
+    </div>
 
-</div>
+
 
 
 </div>

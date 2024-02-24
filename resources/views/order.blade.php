@@ -225,12 +225,20 @@ nav{
           <br>
 
           {{-- modal --}}
+        
           <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
               <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
             </svg>
-          Tambahkan_Barang
-        </a>
+            Tambahkan_Barang
+          </a>
+
+          
+        
+
+
+  
+
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
               <div class="modal-content">
@@ -325,6 +333,8 @@ nav{
               </div>
             </div>
           </div>
+
+          
       
           {{-- Modal --}}
         
@@ -358,13 +368,17 @@ nav{
 
                 @foreach($tampil_inventory as $inventory)
                      
-                      
+                      <form action="/delete_inventory/{{$inventory->inventory_id}}" method="post">
+                        @method('post')
+                        @csrf
                         <tr>
                           <td>{{$no++}}</td>
                           
                           <input type="hidden" value="{{$inventory->inventory_id}}">
                           
                           <input type="hidden" name="produk_id" value="{{$inventory->produk_id}}">
+
+                          <input type="hidden" name="stok" value="{{$inventory->stok}}">
                           <td>
                             
                             {{$inventory->nama_produk}}</td>
@@ -387,12 +401,12 @@ nav{
 
                               
                           <td>
-                                  <button type="submit" class="btn btn-danger btn-sm"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                  <a type="submit" class="btn btn-danger btn-sm"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                           <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
                                           <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
                                       </svg>
-                                    </button>
+                                    </a>
                                   
                                    
                                   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -408,13 +422,13 @@ nav{
                                         <div class="modal-footer">
                                           <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Batal</button>
                                           
-                                          <a href="/delete_inventory/{{$inventory->inventory_id}}" type="submit" class="btn btn-danger remove">Hapus</a>
+                                          <button type="submit" class="btn btn-danger remove">Hapus</button>
                                         </div>
                                       </div>
                                     </div>
                                   </div>  
                               </td>
-                     
+                            </form>
       <?php $total_harga = $total_harga + $inventory->total_harga ?>
                             
                     
@@ -438,12 +452,30 @@ nav{
       </div>
 
       {{-- akhir tabel --}}
-        <div style="display: flex; margin-left: 67%;">
-          <h5>Total Harga: {{number_format($total_harga,0, '.','.')}}</h5> 
 
-              {{-- <h5>Rp {{$total_harga}}</h5> --}}
-            
+
+      <div style="display: flex;"> 
+      
+
+        <div style="background-color: rgb(9, 33, 65); color: white; width: 30%; padding:1%; border-radius: 10px;"> 
+          <div style="display: flex; text-align: center; align-items:center">
+            <h5 style="">Total Harga: {{number_format($total_harga,0, '.','.')}}</h5> 
         </div>
+
+        
+
+        </div>
+      
+      
+    
+          @if(session()->has('error'))
+
+          <div class="alert alert-danger" style="margin-left: 5%; width: 50%; text-align: center;">
+              {{session()->get('error') }}
+          </div>
+                        
+          @endif
+      </div>
 
       
       
@@ -487,6 +519,13 @@ nav{
                   <input type="hidden" name="total_harga" value="{{$total_harga}}">
                 <div style="display: flex;">
                   <div>
+
+                    @foreach($tampil_inventory as $inventory)
+                      <input type="hidden" name="produk_id" value="{{$inventory->produk_id}}">
+                      <input type="hidden" name="stok" value="{{$inventory->stok}}">
+                      <input type="hidden" name="qty" value="{{$inventory->qty}}">
+
+                    @endforeach
                     <label>Masukkan Nama Pelanggan</label>
                     <select style="" class="form-select" class="pelanggan" name="pelanggan_id" required >
                       
