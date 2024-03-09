@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class kasircontroller extends Controller
 {
-    function dashboard(){
+    function dashboard(request $request){
 
         
         $admin = DB::table('admin')->get();
@@ -23,13 +23,15 @@ class kasircontroller extends Controller
         $pelanggan = DB::table('pelanggan')->get();
         $total_pelanggan = count($pelanggan);
 
+        $status = DB::table('admin')->where('id', '=', $request->id)->get('status');
 
 
-        $januari = DB::table('penjualan')->whereMonth('created_at', '=', '01')->get();
-        $tampil_januari= count($januari);
 
-        $februari = DB::table('penjualan')->whereMonth('created_at', '=', '02')->get();
-        $tampil_februari = count($februari);
+        $januari = DB::table('penjualan')->whereMonth('created_at', '=', '01')->get('total_harga');
+        $tampil_januari= collect($januari)->sum('total_harga');
+
+        $februari = DB::table('penjualan')->whereMonth('created_at', '=', '02')->get('total_harga');
+        $tampil_februari = collect($februari)->sum('total_harga');
 
         $maret = DB::table('penjualan')->whereMonth('created_at', '=', '03')->get();
         $tampil_maret = count($maret);
@@ -53,7 +55,9 @@ class kasircontroller extends Controller
                                     'tampil_februari' => $tampil_februari,
                                     'tampil_maret' => $tampil_maret,
                                     'tampil_april' => $tampil_april,
-                                    'tampil_mei' => $tampil_mei,]);
+                                    'tampil_mei' => $tampil_mei,
+                                
+                                'status' => $status]);
     }
 
     function proses_cart($id){

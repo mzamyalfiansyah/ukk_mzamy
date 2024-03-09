@@ -18,16 +18,18 @@ class logincontroller extends Controller
     function proses_login(request $request){
 
     
-        $login = $request->only("username", "password");
+        $login = $request->only('username', 'password', 'status');
+
+        $petugas = $request->only('status', '=', 'petugas');
+
+
             if(Auth::attempt($login)){
-                return redirect('dashboard');
+                return redirect('dashboard')->with(['id' => '$checklogin->name']);
             }else{
                 return redirect('login')->with('error', 'Username atau Password salah');
             }
-
+       
     
-
-
     }
 
     function daftar(){

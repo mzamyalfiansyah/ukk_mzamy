@@ -173,13 +173,7 @@
                         
 
                         
-                    <div style="display: flex; justify-content: center; margin-bottom: 5%;">
-                        <select name="status">
-                            <option>admin</option>
-                            <option>petugas</option>
-                        </select>
-
-                    </div>
+                    
 
                         <button class="tombol" type="submit">Daftar</button>
 

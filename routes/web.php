@@ -9,6 +9,8 @@ use App\Http\Controllers\kasircontroller;
 use App\Http\Controllers\logincontroller;
 use App\Http\Controllers\penjualancontroller;
 use App\Http\Controllers\customercontroller;
+use App\Http\Controllers\petugascontroller;
+
 
 
 /*
@@ -67,8 +69,29 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/edit_customer/{id}', [customercontroller::class, 'edit_customer']);
 
     Route::post('/proses_update_customer/{id}', [customercontroller::class, 'proses_update_customer']);
+
+
+
+    Route::get('/petugas', [petugascontroller::class, 'petugas']);
+
+    Route::post('/tambah_petugas', [petugascontroller::class, 'tambah_petugas']);
+
+    Route::get('/edit_petugas/{id}', [petugascontroller::class, 'edit_petugas']);
+
+    Route::post('/proses_update_petugas/{id}', [petugascontroller::class, 'proses_update_petugas']);
+    
+
 });
 
+
+
+    // petugas
+
+
+Route::middleware(['petugas'])->group(function () { 
+
+   
+});
 
 
 Route::get('/daftar', [logincontroller::class, 'daftar']);

@@ -7,11 +7,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    
-    <link rel="icon" href="/storage/image/LOGO.png">
 
-    <title>Detail Penjualan</title>
+    <link rel="icon" href="/storage/image/LOGO.png">
+    
+    <title>Customer</title>
 </head>
 
 <style>
@@ -83,37 +82,37 @@ nav{
 
 
 <body>
-    <nav class="navbar navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-dark bg-dark fixed-top">
 
         
-        <div class="container-fluid">
+    <div class="container-fluid">
 
-          <span class="zkasir" style="display: flex; ">
-            <h3 class="zkasir1">Z-</h3>
-            <h3 class="zkasir2">Kasir</h3>
-          </span>
+      <span class="zkasir" style="display: flex; ">
+        <h3 class="zkasir1">Z-</h3>
+        <h3 class="zkasir2">Kasir</h3>
+      </span>
 
-                <!-- Offcanvas Sidebar -->
-                <div style="background-color: rgb(22, 22, 22);" class="offcanvas offcanvas-start" id="demo">
-                    <div class="offcanvas-header" style="color: white;">
+            <!-- Offcanvas Sidebar -->
+            <div style="background-color: rgb(22, 22, 22);" class="offcanvas offcanvas-start" id="demo">
+                <div class="offcanvas-header" style="color: white;">
 
-                        <h1 class="offcanvas-title">Notifikasi</h1>
-                     
-                    </div>
-                    <div class="offcanvas-body">
-                    
-                    </div>
+                    <h1 class="offcanvas-title">Notifikasi</h1>
+                 
                 </div>
-        
-                <!-- Button to open the offcanvas sidebar -->
+                <div class="offcanvas-body">
                 
-                    <img data-bs-toggle="offcanvas" data-bs-target="#demo" src="storage/image/ringing.png"  alt="">
-                
+                </div>
+            </div>
+    
+            <!-- Button to open the offcanvas sidebar -->
+            
+                <img data-bs-toggle="offcanvas" data-bs-target="#demo" src="storage/image/ringing.png"  alt="">
+            
 
-                
-                
-        </div>
-    </nav>
+            
+            
+    </div>
+</nav>
 
 
 
@@ -155,7 +154,7 @@ nav{
   
   
             <li>
-              <a href="/order" class="nav-link link-light" border-radius: 5px;>
+              <a href="/order" class="nav-link link-light">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
                   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
                 </svg>
@@ -175,18 +174,20 @@ nav{
   
   
             <li>
-              <a href="/customer" class="nav-link link-light">
+              <a href="/customer" class="nav-link link-light" style="">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
                   <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
                 </svg>
                 Customers
               </a>
             </li>
-            
+
+                
+
 
             <li>
               <a href="/penjualan" class="nav-link link-light">
-                <svg xmlns="http://www.w3.org/2000/svg"   width="16" height="16" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
                   <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
                   <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
                 </svg>
@@ -194,26 +195,29 @@ nav{
               </a>
             </li>
 
-                    <li style="margin-left: 10%; width: 75%;">
-                        <a href="/penjualan" class="" style=" border-radius: 5px;  color: rgb(255, 131, 131); text-decoration: none;">
+
+            <li>
+                <a href="/petugas" class="nav-link link-light" >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z"/>
+                  </svg>
+                  Petugas
+                </a>
+              </li>
+
+                    <li style="margin-left: 10%; width: 75%; border-radius: 5px;  color: rgb(255, 131, 131); text-decoration: none;">
+                        <a href="/edit_customer" class="" style=" border-radius: 5px;  color: rgb(255, 131, 131); text-decoration: none;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                 <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                 <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
                             </svg>
-                        Detail Penjualan
+                        Edit Petugas
                         </a>
                     </li>
+  
 
-                    <a href="/petugas" class="nav-link link-light">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
-                        <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z"/>
-                      </svg>
-                      Petugas
-                    </a>
-                  </li>
-      
-      
-                  <hr style="margin-top: 49%;">
+              <hr style="margin-top: 60%;">
+
 
             <li>
               <a href="/logout" class="nav-link link-light" >
@@ -231,153 +235,98 @@ nav{
          
         </div>
 
-       
-
-<br>
-<br>
-<br>
-
-      <div class="container" style=" background-color: rgb(226, 226, 226);">
-
-<br>
-<br>
-<br>
-<br>
-          
-
- 
-          <div class="container" style="width: 35%; font-size: 80%; height: 80%; padding: 2%; background-color: rgb(255, 255, 255); box-shadow:0px 0px 5px rgb(129, 129, 129);">
-            
-           
-
-            <div style="display: flex">
-              <p style="font-family:unset; font-weight: bold; color: grey;">Detail Transaksi</p>
-            
-              <span class="zkasir" style="display: flex; margin-left: 35%;  ">
-                <h3 class="zkasir1">Z-</h3>
-                <h3 style="color: black">Kasir</h3>
-              </span>
-            </div>
-            
-            <p style="font-size: 80%; border-bottom: 1px solid rgb(182, 182, 182); color: rgb(122, 122, 122);">Berikut detail dari transaksi, anda dapat mencetak atau menyimpannya.</p>
-            
-
-            {{-- <span  style="background-color: rgb(5, 137, 189); width: 50%; height: 50%;">
-              <svg style="color: white" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
-                <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0"/>
-                <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
-              </svg>  
-            </span> --}}
 
 
-            <img src="/storage/image/checkbox.png" style="width: 10%;">
-
-            
-              <img style="width: 10%; margin-left: 50%;" src="/storage/image/barcode.png" alt="">
-              <img style="width: 10%;" src="/storage/image/barcode.png" alt="">
-              <img style="width: 10%;" src="/storage/image/barcode.png" alt="">
-           
 
 
-            <br>
-            <br>
+      <div style="margin-top: 10%; margin-left: 5%; width:70%; text-align: center; display: flex;">
 
-            {{-- table --}}
-
-            <?php $no=1 ?>
-
-    
-         
-
-
-            <table class="table" style="font-size: 70%; border: 1px solid rgb(179, 179, 179); text-align:center;" >
-              <thead style="height: 10%">
-                <tr>
-                  <th scope="col" >No</th>
-                  <th scope="col" >Produk</th>
-                  <th scope="col" >Harga Satuan</th>
-                  <th scope="col" >Qty</th>
-                  <th scope="col" >Subtotal</th>
-
-                </tr>
-              </thead>
-              <tbody>
-                @foreach($detail as $detail)
-                <tr>
-                    <td> {{ $no++ }}</td>
-                    <td> {{$detail->produk_id}} - {{$detail->nama_produk}}</td>
-                    <td> {{$detail->harga}}</td>
-                    <td> {{$detail->qty}}</td>
-                    <td> {{ $detail->qty * $detail->harga}}</td>
-               
-                </tr>
-                @endforeach
-              </tbody>
-            </table>
-
-            {{-- akhir table --}}
-            
-            
-
-            <div style="display: flex">
-                @foreach ($penjualan as $penjualan)    
-                  <li style="list-style: none; font-size: 70%;">
-                      <p>Penjualan ID : {{$penjualan->penjualan_id}}</p>
-                     
-                      <p>Status : {{$penjualan->status}}</p>
-                    <p> Tanggal Penjualan : {{$penjualan->created_at}}</p>
-                  </li>
-                @endforeach
-
-                <li style="list-style: none; font-size: 70%; margin-left: 25%;">
-                  <p>Total harga : {{$penjualan->total_harga}}</p>
-                  <p> Diskon : -</p>
-                  <p>Bayar : -</p>
-                  <p>Kembalian : -</p>
+        <div class="table-responsive table table-striped">
 
                 
-                 
-              </li>
+
+            <table class="table" style="border: 2px solid rgb(148, 148, 148);">
+            
+                <thead>
+                    <tr class="table-active">
+                    <th scope="col">No</th>
+                    <th>ID</th>
+                    <th scope="col">Nama Lengkap</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Nomor Hp</th>
+                    
+
+                    </tr>
+
+                </thead>
+
+                
+                
+                    <tbody>
+                     
+                        <?php $no=1 ?>
+            
+                        @foreach($petugas as $petugas)
+
+                        <form action="/proses_update_petugas/{{$petugas->id}}" method="post">
+                          @method('post')
+                          @csrf
+            
+                                <tr>
+                                    <td>{{ $no++ }}</td>
+                                    <td> {{$petugas->id}} </td>
+
+                               
+
+                                    <td>
+                                        <input type="text" name="nama_lengkap" value="{{$petugas->nama_lengkap}}">
+                                    </td>
+
+                                    <td>
+                                        <input type="text" name="username" value="{{$petugas->username}}">
+                                    </td>
+                                    <td>
+                                        <input type="number" name="no_telp" value="{{$petugas->no_telp}}">
+                                    </td>
+                                </tr>
+            
+                            
+            
+                                
+            
+                        @endforeach 
+                       
+                      
+                    </tbody>
+                           
+            </table>       
+
+          
+              <button class="btn btn-success">Simpan</button>
+           
+          </form> 
+                   
+
+        
+        
+
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+
+                        
+
+    
 
             </div>
+    
 
-
-
-            <a href="/cetak/{{$penjualan->penjualan_id}}" style="margin-left: 40%" class="btn btn-primary" target="blank">Cetak</a>
-
-           
-            
-            
-
-<p style="text-align: center">Terima kasih sudah membeli di toko kami</p>
-
-<hr>
-
-          <p style="font-size: 80%; color: grey; font-weight: bold;">CopyRight © Z-Kasir Hak cipta di di dilindungi</p>
-          
 
 
         </div>
 
 
-
-      </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        
-    </div>
-</body>
+  
+    </body>
 </html>

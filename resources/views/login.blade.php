@@ -176,8 +176,10 @@
                         </p>
 
                         
+                        <p>belum punya akun? <a href="/daftar">daftar disini!</a>  </p>
 
                     </form>
+
 
                 </div>
 

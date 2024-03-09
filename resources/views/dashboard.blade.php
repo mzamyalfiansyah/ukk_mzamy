@@ -94,9 +94,9 @@ nav{
 
                 
                
+          <p style="color: white;">login sebagai : {{ Auth::user()->status }}</p>
                 
 
-                
                 
         </div>
     </nav>
@@ -117,10 +117,11 @@ nav{
             <span class="fs-4" >
               
               <h2 style="margin-top: 50%; color: white">Welcome</h2>
+
               
             </span>
           </a>
-  
+
           <hr>
   
           <ul class="nav nav-pills flex-column mb-auto">
@@ -181,7 +182,17 @@ nav{
             </li>
 
 
-            <hr style="margin-top: 70%;">
+            <li>
+              <a href="/petugas" class="nav-link link-light">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                  <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z"/>
+                </svg>
+                Petugas
+              </a>
+            </li>
+
+
+            <hr style="margin-top: 60%;">
 
             <li>
               <a href="/logout" class="nav-link link-light" >
@@ -298,7 +309,7 @@ nav{
                   data: {
                     labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni','Juli','Agustus','September', 'Oktober', 'November','Desember'],
                     datasets: [{
-                      label: 'terjual',
+                      label: 'penghasilan',
                       data: [{{$tampil_januari}}, {{$tampil_februari}} , , , , , ,],
                       borderWidth: 1
                     }]

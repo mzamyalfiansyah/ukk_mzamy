@@ -99,22 +99,8 @@
             <h3 class="zkasir2">Kasir</h3>
           </span>
     
-                <!-- Offcanvas Sidebar -->
-                <div style="background-color: rgb(22, 22, 22);" class="offcanvas offcanvas-start" id="demo">
-                    <div class="offcanvas-header" style="color: white;">
-    
-                        <h1 class="offcanvas-title">Notifikasi</h1>
-                     
-                    </div>
-                    <div class="offcanvas-body">
-                    
-                    </div>
-                </div>
-        
-                <!-- Button to open the offcanvas sidebar -->
-                
-                    <img data-bs-toggle="offcanvas" data-bs-target="#demo" src="storage/image/ringing.png"  alt="">
-                
+          <p style="color: white;">login sebagai : {{ Auth::user()->status }}</p>
+
     
                 
                 
@@ -197,7 +183,17 @@
       </li>
 
 
-      <hr style="margin-top: 70%;">
+      <li>
+        <a href="/petugas" class="nav-link link-light">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+            <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z"/>
+          </svg>
+          Petugas
+        </a>
+      </li>
+
+      <hr style="margin-top: 60%;">
+      
 
       <li>
         <a href="/logout" class="nav-link link-light" >
@@ -219,28 +215,46 @@
 
   
 
-    <div class="container">
+    <div class="container"  style="margin-top: 5%; margin-left: 5%; width:70%;">
       <br>
-      <br>
-      <br>
-      <br>
-      <br>
+     
 
-      <h2 style="margin-left: 10%; font-family:'Times New Roman', Times, serif">Data Penjualan</h2>
+      <h4 style="margin-left: 10%; font-family:Arial, Helvetica, sans-serif">Data Penjualan</h4>
 
       <br>
     
-      <div class="table-responsive table table-striped" style=" margin-left: 10%; width: 80%; text-align: center; height: 65%;">
-        <table class="table" style="border: 2px solid rgb(148, 148, 148); ">
+      <div class="table-responsive table table-striped" style="height: 65%">
+        <table class="table" >
           
             <thead>
                 <tr class="table-active">
-                  <th scope="col">No</th>
-                  <th scope="col">ID Penjualan</th>
+
+                  <th scope="col">
+                    
+                    No</th>
+
+                  <th scope="col">
+                    
+                    ID Penjualan</th>
              
-                  <th scope="col">Tanggal</th>
-                  <th scope="col">Total Harga</th>
-                  <th scope="col">Status</th>
+                  <th scope="col">
+                    <svg style="color: green" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                      <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                    </svg>
+                    Tanggal</th>
+
+
+                  <th scope="col">
+                    <svg style="color: green" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-dollar" viewBox="0 0 16 16">
+                      <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73z"/>
+                    </svg>
+                    Total Harga</th>
+
+                  <th scope="col">
+                    <svg style="color: green" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0zM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5M10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM13 8h-2V6h2z"/>
+                    </svg>
+                    Status</th>
                 
                   <th scope="col"></th>
 
@@ -257,10 +271,10 @@
                 @foreach($penjualan as $tampil_penjualan)
                 <tr>
                   <td>{{ $no++ }}</td>
-                  <td>{{$tampil_penjualan->penjualan_id}}</td>
+                  <td style="color: brown">{{$tampil_penjualan->penjualan_id}}</td>
                  
                   <td>{{$tampil_penjualan->tanggal_penjualan}}</td>
-                  <td>{{$tampil_penjualan->total_harga}}</td>
+                  <td style="color: green">Rp. {{number_format($tampil_penjualan->total_harga,0, '.','.')}}</td>
                   <td>{{$tampil_penjualan->status}}</td>
             
                 

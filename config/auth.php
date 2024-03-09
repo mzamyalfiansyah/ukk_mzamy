@@ -73,6 +73,11 @@ return [
         'admin' => [
             'driver' => 'eloquent',
             'model' => App\Models\admin::class,
+        ],
+
+        'petugas' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\petugas::class,
         ]
         // 'users' => [
         //     'driver' => 'database',
