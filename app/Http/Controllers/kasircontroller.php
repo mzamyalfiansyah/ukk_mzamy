@@ -139,8 +139,8 @@ class kasircontroller extends Controller
    
     function checkout(request $request){
 
-        $produk = DB::table('produk')->where('produK_id', $request->produk_id)->first();
-
+        $produk = DB::table('produk')->where('produk_id', $request->produk_id)->first();
+return $produk;
         $update_stok = DB::table('produk')->where('produk_id', $request->produk_id)->update([
             'stok' => $request->stok - $request->qty
         ]);

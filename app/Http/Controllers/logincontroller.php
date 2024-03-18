@@ -53,7 +53,7 @@ class logincontroller extends Controller
             'username' => $isi_username,
             'password' => hash::make($isi_password),
             'no_telp' => $isi_telp,
-           
+            'status' => 'admin'
             
 
         ]);
