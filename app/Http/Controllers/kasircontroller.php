@@ -88,8 +88,8 @@ class kasircontroller extends Controller
         
             'nama_produk' => $nama_produk,
             'harga' => $harga,
-            'stok' => $stok
-           
+            'stok' => $stok,
+            'status' => 'tersedia'
         ]);
 
         
