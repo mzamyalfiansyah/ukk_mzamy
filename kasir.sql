@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 17, 2024 at 08:13 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Mar 17, 2024 at 06:57 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,10 @@ INSERT INTO `admin` (`id`, `nama_lengkap`, `username`, `password`, `no_telp`, `s
 (1, 'Muhammad Zamy Alfiansyah', 'admin', '$2y$10$V7aEDAx58fMx0JOxFu0iAeUlqnXIlIu65ZJAI.wEtqztZKMzYhRgO', '08123456789', 'admin'),
 (2, 'alfin ganteng', 'admin2', '$2y$12$xSnvue3hksSVvtto0HR98OM7Z7Uk7Z11N9imueBvKzJ9i4hV0ghdG', '23534535346', 'admin'),
 (3, 'alfin dak pucung', 'penguasa_pucung', '$2y$12$r2D7bkMDM4Hfu/2d5ZVcnOzGo87AM8dvNy7KCTn2qBYGg4qEyxm0i', '23436346534', 'admin'),
-(4, 'limbad sugiono', 'limbad', '$2y$12$3w6IVv0jBdZIXALjCal67OtEPAxRvS10WywwPh.uQ5/cjkJl5zyhS', '12345673432', 'admin');
+(4, 'limbad sugiono', 'limbad', '$2y$12$3w6IVv0jBdZIXALjCal67OtEPAxRvS10WywwPh.uQ5/cjkJl5zyhS', '12345673432', 'admin'),
+(5, 'm zamy a', 'zamy', '$2y$12$qu7onbBR7h7yBhlv1H4IVeQ4.fAkHiQ4kPsOKSgBF6diV8sUx9ckO', '085r4766769', 'admin'),
+(6, 'faudzan lele gacor', 'ojan', '$2y$12$X6QhkjJ3WBqyDYb9QI/GKekl4OlmFsX24s2ja.x5Nduhqs4AxAMWC', '0843689123', 'petugas'),
+(7, 'petugas', 'petugas', '$2y$12$jJUpBMbz3NpkXBCo8lb2puimjVVYuxvU0sI6bf5U4nhAhcjqx2KQm', '6785546123', 'petugas');
 
 -- --------------------------------------------------------
 
@@ -89,7 +92,31 @@ INSERT INTO `inventory` (`inventory_id`, `penjualan_id`, `produk_id`, `qty`, `to
 (132, 4, 145327, 1, 10000),
 (142, 5, 145328, 2, 10000),
 (143, 6, 145329, 5, 12500),
-(144, 7, 145329, 2, 5000);
+(144, 7, 145329, 2, 5000),
+(152, 8, 145332, 2, 2000),
+(153, 9, 145330, 2, 4000),
+(154, 10, 145331, 2, 10000),
+(155, 11, 145331, 2, 10000),
+(156, 12, 145331, 2, 10000),
+(157, 13, 145331, 2, 10000),
+(158, 14, 145331, 2, 10000),
+(159, 15, 145330, 3, 6000),
+(160, 16, 145336, 5, 25000),
+(161, 17, 145336, 1, 5000),
+(164, 18, 145335, 2, 2000),
+(165, 18, 145336, 2, 10000),
+(167, 19, 145333, 2, 2000),
+(168, 19, 145335, 1, 1000),
+(169, 20, 145334, 2, 2000),
+(170, 21, 145332, 3, 3000),
+(171, 22, 145333, 1, 1000),
+(172, 23, 145333, 2, 2000),
+(173, 24, 145332, 15, 15000),
+(174, 24, 145333, 10, 10000),
+(175, 25, 145332, 10, 10000),
+(176, 26, 145333, 1, 1000),
+(177, 27, 145332, 5, 5000),
+(178, 27, 145333, 2, 2000);
 
 -- --------------------------------------------------------
 
@@ -143,9 +170,11 @@ CREATE TABLE `pelanggan` (
 --
 
 INSERT INTO `pelanggan` (`pelanggan_id`, `nama_pelanggan`, `alamat`, `no_telepon`) VALUES
-(2547, 'arrafi TOLE', 'BMI', '124235234'),
+(2547, 'arrafi TOLE', 'BMI banjir', '124235234'),
 (2548, 'Muhammad Zamy Alfiansyah', 'Pucung-Kota Baru-Karawang', '0895602856080'),
-(2549, 'Luffy Taro', 'Wano kuni', '12345123456789');
+(2549, 'Luffy Taro', 'Wano kuni', '12345123456789'),
+(2550, 'Rafi Ahmad', 'pucung, kotabaru, karawang', '08934634235'),
+(2551, 'deri', 'pucung', '09865785657');
 
 -- --------------------------------------------------------
 
@@ -173,7 +202,27 @@ INSERT INTO `penjualan` (`penjualan_id`, `tanggal_penjualan`, `total_harga`, `pe
 (4, '2024-02-12', 35000, 2547, 'selesai', '2024-02-12 01:51:14'),
 (5, '2024-02-12', 10000, 2548, 'selesai', '2024-02-17 00:33:02'),
 (6, '2024-02-17', 12500, 2547, 'selesai', '2024-02-17 00:54:30'),
-(7, '2024-02-17', 5000, 2547, 'selesai', '2024-02-17 00:58:55');
+(7, '2024-02-17', 5000, 2547, 'selesai', '2024-02-17 00:58:55'),
+(8, '2024-02-22', 2000, 2547, 'selesai', '2024-02-23 07:10:43'),
+(9, '2024-02-23', 4000, 2547, 'selesai', '2024-02-23 07:11:39'),
+(10, '2024-02-23', 10000, 2548, 'selesai', '2024-02-23 07:15:42'),
+(11, '2024-02-23', 10000, 2548, 'selesai', '2024-02-23 07:19:47'),
+(12, '2024-02-23', 10000, 2548, 'selesai', '2024-02-23 07:21:20'),
+(13, '2024-02-23', 10000, 2547, 'selesai', '2024-02-23 07:21:49'),
+(14, '2024-02-23', 10000, 2550, 'selesai', '2024-02-23 07:23:49'),
+(15, '2024-02-23', 6000, 2550, 'selesai', '2024-02-23 07:24:51'),
+(16, '2024-02-24', 25000, 2548, 'selesai', '2024-02-24 07:07:21'),
+(17, '2024-02-24', 5000, 2548, 'selesai', '2024-02-24 07:07:39'),
+(18, '2024-02-24', 12000, 2548, 'selesai', '2024-02-24 08:29:44'),
+(19, '2024-02-24', 3000, 2550, 'selesai', '2024-03-04 06:27:54'),
+(20, '2024-03-04', 2000, 2551, 'selesai', '2024-03-04 06:29:45'),
+(21, '2024-03-04', 3000, 2550, 'selesai', '2024-03-04 06:42:05'),
+(22, '2024-03-04', 1000, 2550, 'selesai', '2024-03-04 06:52:04'),
+(23, '2024-03-04', 2000, 2547, 'selesai', '2024-03-04 07:08:43'),
+(24, '2024-03-04', 25000, 2548, 'selesai', '2024-03-04 07:37:43'),
+(25, '2024-03-04', 10000, 2551, 'selesai', '2024-03-04 07:54:50'),
+(26, '2024-03-09', 1000, 2551, 'selesai', '2024-03-09 05:00:49'),
+(27, '2024-03-16', 7000, 2550, 'selesai', '2024-03-16 07:25:31');
 
 -- --------------------------------------------------------
 
@@ -216,7 +265,16 @@ INSERT INTO `produk` (`produk_id`, `nama_produk`, `harga`, `stok`, `status`) VAL
 (145326, 'curos', 5000, 11, 'dihapus'),
 (145327, 'Batagor', 10000, 13, 'dihapus'),
 (145328, 'Air mineral berqualitas', 5000, 24, 'dihapus'),
-(145329, 'singkong', 2500, 8, 'tersedia');
+(145329, 'singkong', 2500, 8, 'dihapus'),
+(145330, 'Teh Gelas - asli teh alami', 2000, 43, 'dihapus'),
+(145331, 'Teh Pucuk - Minuman segar penghilang dahaga', 5000, 75, 'dihapus'),
+(145332, 'Sukro - Cemilan nikmat bareng keluarga', 1000, 85, 'tersedia'),
+(145333, 'Kacang Dua Kelinci - Kacang tanah asli', 1000, 18, 'tersedia'),
+(145334, 'Power F - Dengan Ginseng Berkualitas', 1000, 38, 'tersedia'),
+(145335, 'Ale ale Jeruk', 1000, 36, 'tersedia'),
+(145336, 'jus alpukat', 5000, 3, 'tersedia'),
+(145337, 'tea jus manis', 2000, 5, 'tersedia'),
+(145338, 'Iphone 20 pro max', 20500000, 23, 'tersedia');
 
 -- --------------------------------------------------------
 
@@ -314,7 +372,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -326,7 +384,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `inventory_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
+  MODIFY `inventory_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=179;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -338,7 +396,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `pelanggan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2550;
+  MODIFY `pelanggan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2552;
 
 --
 -- AUTO_INCREMENT for table `penjualan`
@@ -356,7 +414,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `produk_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145330;
+  MODIFY `produk_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145339;
 
 --
 -- AUTO_INCREMENT for table `users`
