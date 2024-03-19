@@ -110,9 +110,9 @@ class kasircontroller extends Controller
         $id_jual = '';
 
         if(!$penjualan){
-            $id_jual = '1';
+            $id_jual = 1;
         }else{
-            if($penjualan->status == "selesai"){
+            if($penjualan->status == 'selesai'){
                 $id_jual = $penjualan->penjualan_id + 1;
             }else{
                 $id_jual = $penjualan->penjualan_id;
