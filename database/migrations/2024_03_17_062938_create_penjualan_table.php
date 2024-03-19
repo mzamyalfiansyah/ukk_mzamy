@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('total_harga');
             $table->integer('pelanggan_id');
             $table->string('status');
-            $table->timestamp('created_at')->nullable();
+            $table->timestamp('created_at')->useCurrent();
 
 
         });
