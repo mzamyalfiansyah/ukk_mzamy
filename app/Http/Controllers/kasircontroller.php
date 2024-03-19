@@ -192,7 +192,8 @@ class kasircontroller extends Controller
                 'tanggal_penjualan' => date('Y-m-d'),
                 'total_harga' => 0,
                 'pelanggan_id' => 2547,
-                'status' => 'di proses'
+                'status' => 'di proses',
+                'created_at' => date('Y-m-d')
             ]);
         } if($produk->stok - $request->qty < 0){
             
