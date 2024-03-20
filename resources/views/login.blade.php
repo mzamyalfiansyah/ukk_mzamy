@@ -33,11 +33,7 @@
 
 
     .box{
-        align-items: center;
-        display: flex;
-        border-left: 1px solid grey;
-        justify-content: center;
-        text-align: center;
+        
 
     }
 
@@ -144,7 +140,11 @@
             <div class="isi">
                 <img src="storage/image/login.jpg" alt="">
 
-                <div class="box" >
+                <div class="box" style="align-items: center;
+        display: flex;
+        border-left: 1px solid grey;
+        justify-content: center;
+        text-align: center;" >
 
 
 
