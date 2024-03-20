@@ -224,7 +224,7 @@ class kasircontroller extends Controller
 
         $kembalian = $request->dibayarkan - $total_harga;
 
-        return redirect()->back();
+        return view('order', 'kembalian' => $kembalian);
     }
 
 
