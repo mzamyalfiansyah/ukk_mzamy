@@ -365,8 +365,8 @@ nav{
                                 <div>
                                   <label for="jabatan" class="col-form-label">Pilih jabatan</label>
                                   <select class="form-select" name="jabatan" aria-label="Default select example" id="jabatan"> 
-                                    <option value="1">Admin</option>
-                                    <option value="2">Petugas</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="petugas">Petugas</option>
                                   </select>
                                 </div>
                               
