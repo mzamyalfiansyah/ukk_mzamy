@@ -454,6 +454,7 @@ nav{
         <div style="background-color: rgb(9, 33, 65); color: white; width: 30%; padding:1%; border-radius: 10px;"> 
           <div style="display: flex; text-align: center; align-items:center">
             <h5 style="">Total Harga: {{number_format($total_harga,0, '.','.')}}</h5> 
+            <h5>Dibayarkan : <input type="number" placeholder="dibayarkan"></h5>
         </div>
 
         
