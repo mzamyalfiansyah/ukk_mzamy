@@ -317,7 +317,7 @@ nav{
     @if(Auth::check() && Auth::user()->status == 'admin')
 
                     <p>
-                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Tambahkan petugas</button>
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Tambahkan Petugas/Admin</button>
                       
         
                       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -335,22 +335,30 @@ nav{
         
                                 <div class="mb-3">
                                   <label for="recipient-name" class="col-form-label">Nama Lengkap</label>
-                                  <input type="text" class="form-control" id="recipient-name" name="nama_lengkap" placeholder="Masukkan nama">
+                                  <input type="text" class="form-control" id="recipient-name" name="nama_lengkap" placeholder="Masukkan nama" required>
                                 </div>
         
                                 <div class="mb-3">
                                   <label for="message-text" class="col-form-label">Username</label>
-                                  <input type="text" class="form-control" id="message-text" name="username" placeholder="Masukkan alamat">
+                                  <input type="text" class="form-control" id="message-text" name="username" placeholder="Masukkan alamat" required>
                                 </div>
         
                                 <div class="mb-3">
                                   <label for="message-text" class="col-form-label">Password</label>
-                                  <input type="password" class="form-control"  id="message-text" name="password" placeholder="Masukkan nomor">
+                                  <input type="password" class="form-control"  id="message-text" name="password" placeholder="Masukkan nomor" required>
                                 </div>
 
                                 <div class="mb-3">
                                   <label for="message-text" class="col-form-label">Nomor Telepon</label>
-                                  <input type="number" class="form-control"  id="message-text" name="no_telp" placeholder="Masukkan nomor">
+                                  <input type="number" class="form-control"  id="message-text" name="no_telp" placeholder="Masukkan nomor" required>
+                                </div>
+
+                                <div>
+                                  <label for="jabatan" class="col-form-label">Pilih jabatan</label>
+                                  <select class="form-select" name="jabatan" aria-label="Default select example" id="jabatan"> 
+                                    <option value="1">Admin</option>
+                                    <option value="2">Petugas</option>
+                                  </select>
                                 </div>
                               
         

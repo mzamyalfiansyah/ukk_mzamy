@@ -329,17 +329,17 @@ nav{
 
                         <div class="mb-3">
                           <label for="recipient-name" class="col-form-label">Nama</label>
-                          <input type="text" class="form-control" id="recipient-name" name="nama_pelanggan" placeholder="Masukkan nama">
+                          <input type="text" class="form-control" id="recipient-name" name="nama_pelanggan" placeholder="Masukkan nama" required>
                         </div>
 
                         <div class="mb-3">
                           <label for="message-text" class="col-form-label">Alamat</label>
-                          <input class="form-control" id="message-text" name="alamat" placeholder="Masukkan alamat">
+                          <input type="text" class="form-control" id="message-text" name="alamat" placeholder="Masukkan alamat" required>
                         </div>
 
                         <div class="mb-3">
-                          <label for="message-text" class="col-form-label">Nomor</label>
-                          <input type="tel" class="form-control"  id="message-text" name="no_telepon" placeholder="Masukkan nomor">
+                          <label for="message-text" class="col-form-label">Nomor Telephone</label>
+                          <input type="number" class="form-control"  id="message-text" name="no_telepon" placeholder="Masukkan nomor telephone" required>
                         </div>
                       
 

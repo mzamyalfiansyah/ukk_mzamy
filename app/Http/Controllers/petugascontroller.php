@@ -37,7 +37,7 @@ class petugascontroller extends Controller
             'username' => $request->username,
             'password' => hash::make($password),
             'no_telp' => $request->no_telp,
-            'status' => 'petugas'
+            'status' => $request->jabatan
         ]);
 
         return redirect()->back();
