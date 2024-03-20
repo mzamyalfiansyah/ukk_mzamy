@@ -300,11 +300,11 @@ nav{
                 <canvas id="myChart"></canvas>
               </div>
               
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
               
-              
-              <script src="https://cdn.jsdelivr.net/npm/chart.js">
+              <script>
                 const ctx = document.getElementById('myChart');
-              
+              const
                 new Chart(ctx, {
                  type: 'bar',
                   data: {
@@ -323,6 +323,8 @@ nav{
                     }
                   }
                 });
+
+                
               </script>
 
             </div>
