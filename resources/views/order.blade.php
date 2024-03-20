@@ -451,7 +451,7 @@ nav{
       <div style="display: flex;"> 
       
 
-        <div style="background-color: rgb(9, 33, 65); color: white; width: 50%; padding:1%; border-radius: 10px;"> 
+        <div style="background-color: rgb(9, 33, 65); color: white; width: 70%; padding:1%; border-radius: 10px;"> 
           <div style="display: flex; text-align: center; align-items:center">
             <h5 style="">Total Harga: {{number_format($total_harga,0, '.','.')}}</h5> 
             
@@ -461,10 +461,12 @@ nav{
 
             <div style="display: flex;">
               <h5>Dibayarkan : </h5>
-              <input class="form-control" type="number" placeholder="dibayarkan">
+              <input style="padding; 0; margin: 0;" class="form-control" type="number" placeholder="dibayarkan">
+
+              <button type="submit" class="btn btn-primary">hitung</button>
             </div>
 
-            <button type="submit" class="btn btn-primary">hitung</button>
+            
 
             </form>
 
