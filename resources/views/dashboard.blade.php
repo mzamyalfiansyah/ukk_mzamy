@@ -1,3 +1,18 @@
+<?php
+ 
+$dataPoints = array(
+	array("y" => 25, "label" => "Sunday"),
+	array("y" => 15, "label" => "Monday"),
+	array("y" => 25, "label" => "Tuesday"),
+	array("y" => 5, "label" => "Wednesday"),
+	array("y" => 10, "label" => "Thursday"),
+	array("y" => 0, "label" => "Friday"),
+	array("y" => 20, "label" => "Saturday")
+);
+ 
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +27,64 @@
     <link rel="icon" href="/storage/image/LOGO.png">
     
     <title>Dashboard</title>
+
+
+
+
+
+
+    <script>
+window.onload = function () {
+ 
+var chart = new CanvasJS.Chart("chartContainer", {
+	title: {
+		text: "CPU Usage in 8-Core Processor"
+	},
+	axisY: {
+		minimum: 0,
+		maximum: 100,
+		suffix: "%"
+	},
+	data: [{
+		type: "column",
+		yValueFormatString: "#,##0.00\"%\"",
+		indexLabel: "{y}",
+		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+	}]
+});
+ 
+function updateChart() {
+	var color,deltaY, yVal;
+	var dps = chart.options.data[0].dataPoints;
+	for (var i = 0; i < dps.length; i++) {
+		deltaY = (2 + Math.random() * (-2 - 2));
+		yVal =  Math.min(Math.max(deltaY + dps[i].y, 0), 90);
+		color = yVal > 75 ? "#FF2500" : yVal >= 50 ? "#FF6000" : yVal < 50 ? "#41CF35" : null;
+		dps[i] = {label: "Core "+(i+1) , y: yVal, color: color};
+	}
+	chart.options.data[0].dataPoints = dps;
+	chart.render();
+};
+updateChart();
+ 
+setInterval(function () { updateChart() }, 1000);
+ 
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </head>
 
 <style>
@@ -292,7 +365,7 @@ nav{
 
 {{-- grafik --}}
 
-            <div style="width: 50%; margin-left: 5%; ">
+            <!-- <div style="width: 50%; margin-left: 5%; ">
 
               <h4>Data pejualan bulanan</h4>
 
@@ -311,7 +384,7 @@ nav{
                     labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni','Juli','Agustus','September', 'Oktober', 'November','Desember'],
                     datasets: [{
                       label: 'penghasilan',
-                      data: [$tampil_januari, $tampil_februari , , , , , ,],
+                      data: [{{$tampil_januari}}, {{$tampil_februari}} , , , , , ,],
                       borderWidth: 1
                     }]
                   },
@@ -327,9 +400,19 @@ nav{
                 
               </script>
 
-            </div>
+            </div> -->
+
+<div>
 
 
+
+
+
+
+
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+</div>
             
 
             
