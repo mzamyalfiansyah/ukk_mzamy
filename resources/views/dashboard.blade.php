@@ -1,7 +1,7 @@
 <?php
  
 $dataPoints = array(
-	array("y" => 25, "label" => "Sunday"),
+	array("y" => {{$tampil_januari}}, "label" => "Januari"),
 	array("y" => 15, "label" => "Monday"),
 	array("y" => 25, "label" => "Tuesday"),
 	array("y" => 5, "label" => "Wednesday"),
