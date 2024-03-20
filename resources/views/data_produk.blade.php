@@ -270,7 +270,7 @@
 
                     <tr>
                       <td> {{ $no++ }} </td>
-                      <td>{{$produk->produk_id}}</td>
+                      
                       <td>{{$produk->nama_produk}}</td>
                       <td style="color: green">Rp {{number_format($produk->harga,0, '.','.')}}</td>
                       <td>{{$produk->stok}}</td>
@@ -288,7 +288,7 @@
                         </a>
       
                                 
-                                <a   >hapus</a>
+                              
                               
 
 
