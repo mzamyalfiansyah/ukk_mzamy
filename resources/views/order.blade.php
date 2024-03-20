@@ -455,15 +455,17 @@ nav{
           <div style="display: flex; text-align: center; align-items:center">
             <h5 style="">Total Harga: {{number_format($total_harga,0, '.','.')}}</h5> 
             
-            <form action="">
+            <form action="/hitung" method="post">
+              @method('post')
+              @csrf
 
-            <input type="hidden" value="{{$total_harga}}">
+            <input type="hidden" name="total_harga" value="{{$total_harga}}">
 
-            <div style="display: flex;">
-              <h5>Dibayarkan : </h5>
-              <input style="padding; 0; margin: 0;" class="form-control" type="number" placeholder="dibayarkan">
+            <div style="display: flex; text-align: center; align-items:center">
+              <h5 style="margin-left 2%">Dibayarkan : </h5>
+              <input style="margin-left 2%"  class="form-control" name="dibayarkan" type="number" placeholder="dibayarkan" value="{{request('dibayarkan)}}" required>
 
-              <button type="submit" class="btn btn-primary">hitung</button>
+              <button style="margin-left 2%" type="submit" class="btn btn-primary">hitung</button>
             </div>
 
             
@@ -536,6 +538,8 @@ nav{
                               <option value="{{$pelanggan->pelanggan_id}}" required>{{$pelanggan->nama_pelanggan}}</option>
                         @endforeach
                     </select>
+
+                    <h5 style="">Total Harga: {{number_format($total_harga,0, '.','.')}}</h5>
                    
                   </div>
               
