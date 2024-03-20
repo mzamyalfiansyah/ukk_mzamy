@@ -38,36 +38,17 @@ window.onload = function () {
  
 var chart = new CanvasJS.Chart("chartContainer", {
 	title: {
-		text: "CPU Usage in 8-Core Processor"
+		text: "Push-ups Over a Week"
 	},
 	axisY: {
-		minimum: 0,
-		maximum: 100,
-		suffix: "%"
+		title: "Number of Push-ups"
 	},
 	data: [{
-		type: "column",
-		yValueFormatString: "#,##0.00\"%\"",
-		indexLabel: "{y}",
+		type: "line",
 		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
 	}]
 });
- 
-function updateChart() {
-	var color,deltaY, yVal;
-	var dps = chart.options.data[0].dataPoints;
-	for (var i = 0; i < dps.length; i++) {
-		deltaY = (2 + Math.random() * (-2 - 2));
-		yVal =  Math.min(Math.max(deltaY + dps[i].y, 0), 90);
-		color = yVal > 75 ? "#FF2500" : yVal >= 50 ? "#FF6000" : yVal < 50 ? "#41CF35" : null;
-		dps[i] = {label: "Core "+(i+1) , y: yVal, color: color};
-	}
-	chart.options.data[0].dataPoints = dps;
-	chart.render();
-};
-updateChart();
- 
-setInterval(function () { updateChart() }, 1000);
+chart.render();
  
 }
 </script>
