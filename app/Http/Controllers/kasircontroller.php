@@ -222,7 +222,7 @@ class kasircontroller extends Controller
 
     function hapus(request $request){
 
-        $kembalian = $request->dibayarkan - $total_harga
+        $kembalian = $request->dibayarkan - $total_harga;
 
         return redirect()->back();
     }
