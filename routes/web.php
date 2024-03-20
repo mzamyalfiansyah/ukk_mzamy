@@ -81,7 +81,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/proses_update_petugas/{id}', [petugascontroller::class, 'proses_update_petugas']);
 
     
-    Route::post('/hitung', [kasircontroller::class, 'hitung']);
+    
 
 });
 

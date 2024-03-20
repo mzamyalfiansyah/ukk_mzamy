@@ -454,23 +454,6 @@ nav{
         <div style="background-color: rgb(9, 33, 65); color: white; width: 70%; padding:1%; border-radius: 10px;"> 
           <div style="display: flex; text-align: center; align-items:center">
             <h5 style="">Total Harga: {{number_format($total_harga,0, '.','.')}}</h5> 
-            
-            <form action="/hitung" method="post">
-              @method('post')
-              @csrf
-
-            <input type="hidden" name="total_harga" value="{{$total_harga}}">
-
-            <div style="display: flex; text-align: center; align-items:center">
-              <h5 style="margin-left 2%">Dibayarkan : </h5>
-              <input style="margin-left 2%"  class="form-control" name="dibayarkan" type="number" placeholder="dibayarkan" value="{{request('dibayarkan')}}" required>
-
-              <button style="margin-left 2%" type="submit" class="btn btn-primary">hitung</button>
-            </div>
-
-            
-
-            </form>
 
           </div>
         </div>
@@ -542,11 +525,7 @@ nav{
                    
                   </div>
               
-                  <div >
-                  <h5 style="">Total Kembalian: {{number_format($kembalian,0, '.','.')}}</h5>
-
-          
-                  </div>
+                
                   
                 </div>
                   {{-- <input type="hidden" name="status" value="{{$request = $penjualan->status}}"> --}}
