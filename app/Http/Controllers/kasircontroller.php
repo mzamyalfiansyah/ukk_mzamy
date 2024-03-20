@@ -57,7 +57,7 @@ class kasircontroller extends Controller
                                     'tampil_april' => $tampil_april,
                                     'tampil_mei' => $tampil_mei,
 
-                                'status' => $status])->json($tampil_januari);
+                                'status' => $status]);
 
                                 
     }
