@@ -289,42 +289,9 @@ nav{
 <br>
 
 
-            {{-- grafik --}}
+            
 
-            <div style="width: 50%; margin-left: 5%; ">
-
-              <h4>Data pejualan bulanan</h4>
-
-              <div>
-                <canvas id="myChart"></canvas>
-              </div>
-              
-              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-              
-              <script>
-                const ctx = document.getElementById('myChart');
-              
-                new Chart(ctx, {
-                  type: 'bar',
-                  data: {
-                    labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni','Juli','Agustus','September', 'Oktober', 'November','Desember'],
-                    datasets: [{
-                      label: 'penghasilan',
-                      data: [{{$tampil_januari}}, {{$tampil_februari}} , , , , , ,],
-                      borderWidth: 1
-                    }]
-                  },
-                  options: {
-                    scales: {
-                      y: {
-                        beginAtZero: true
-                      }
-                    }
-                  }
-                });
-              </script>
-
-            </div>
+            
       </div>
 
 
