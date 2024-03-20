@@ -314,7 +314,16 @@ nav{
             
                           
                           
-    @if(Auth::check() && Auth::user()->status == 'admin')
+    
+        
+    
+            
+
+
+        </div>
+
+
+        @if(Auth::check() && Auth::user()->status == 'admin')
 
                     <p>
                       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Tambahkan Petugas/Admin</button>
@@ -374,13 +383,6 @@ nav{
                       </div>
                   </p> 
     @endif
-        
-    
-            
-
-
-        </div>
-
 
   
     </body>

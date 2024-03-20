@@ -289,11 +289,11 @@ nav{
 
                                         <td><input type="text" name="nama_produk" value="{{$produk->nama_produk}}"></td>
                                         <td>
-                                        <input type="text" name="harga" value="{{$produk->harga}}">
+                                        <input type="number" name="harga" value="{{$produk->harga}}">
 
                                         </td>
                                         <td>
-                                        <input type="text" name="stok" value="{{$produk->stok}}">
+                                        <input type="number" name="stok" value="{{$produk->stok}}">
 
                                         </td>
 

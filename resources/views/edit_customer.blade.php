@@ -283,7 +283,7 @@ nav{
                                         <input type="text" name="alamat" value="{{$tampil_pelanggan->alamat}}">
                                     </td>
                                     <td>
-                                        <input type="text" name="no_telepon" value="{{$tampil_pelanggan->no_telepon}}">
+                                        <input type="number" name="no_telepon" value="{{$tampil_pelanggan->no_telepon}}">
                                     </td>
                                 </tr>
             
