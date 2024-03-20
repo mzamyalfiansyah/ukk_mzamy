@@ -539,14 +539,13 @@ nav{
                         @endforeach
                     </select>
 
-                    <h5 style="">Total Harga: {{number_format($total_harga,0, '.','.')}}</h5>
                    
                   </div>
               
-                  <div style="margin-left: 40%">
+                  <div >
+                  <h5 style="">Total Kembalian: {{number_format($kembalian,0, '.','.')}}</h5>
 
-<br>
-                    
+          
                   </div>
                   
                 </div>
