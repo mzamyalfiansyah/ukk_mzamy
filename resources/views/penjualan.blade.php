@@ -219,7 +219,7 @@
       <br>
      
 
-      <h4 style="margin-left: 10%; font-family:Arial, Helvetica, sans-serif">Data Penjualan</h4>
+      <h4 style="font-family:Arial, Helvetica, sans-serif">Data Penjualan</h4>
 
       <br>
     

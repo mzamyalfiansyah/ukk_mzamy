@@ -480,20 +480,14 @@ nav{
 
           
           
-           {{-- <div>
-           
-              <p>ID Pelanggan</p>
-              <input   type="text" class="form-control" name="pelanggan_id" placeholder="2548" aria-label="idmember" aria-describedby="basic-addon1" required>
-           
-          </div> --}}
-
+    
         
       </div>
 
         <div>
           
 
-          {{-- <h5>Kembalian : Rp {{}}.000</h5> --}}
+         
           
             
           
@@ -524,9 +518,9 @@ nav{
                     <label>Masukkan Nama Pelanggan</label>
                     <select style="" class="form-select" class="pelanggan" name="pelanggan_id" required>
                       
-                      <option value="Nama Pelanggan" ></option>
+                      <option></option>
                         @foreach ($pelanggan as $pelanggan)
-                              <option value="{{$pelanggan->pelanggan_id}}">{{$pelanggan->nama_pelanggan}}</option>
+                              <option value="{{$pelanggan->pelanggan_id}}" required>{{$pelanggan->nama_pelanggan}}</option>
                         @endforeach
                     </select>
                    
