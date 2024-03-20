@@ -463,7 +463,7 @@ nav{
 
             <div style="display: flex; text-align: center; align-items:center">
               <h5 style="margin-left 2%">Dibayarkan : </h5>
-              <input style="margin-left 2%"  class="form-control" name="dibayarkan" type="number" placeholder="dibayarkan" value="{{request('dibayarkan)}}" required>
+              <input style="margin-left 2%"  class="form-control" name="dibayarkan" type="number" placeholder="dibayarkan" value="{{request('dibayarkan')}}" required>
 
               <button style="margin-left 2%" type="submit" class="btn btn-primary">hitung</button>
             </div>
