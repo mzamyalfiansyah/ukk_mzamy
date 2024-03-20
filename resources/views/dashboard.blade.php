@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <script src="path/to/chartjs/dist/chart.umd.js"></script>
     <link rel="icon" href="/storage/image/LOGO.png">
     
     <title>Dashboard</title>
