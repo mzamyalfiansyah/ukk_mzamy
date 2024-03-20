@@ -23,7 +23,7 @@ class petugascontroller extends Controller
 
     function petugas(){
 
-        $petugas = DB::table('admin')->where('status', '=', 'petugas')->get();
+        $petugas = DB::table('admin')->get();
 
         return view('petugas', ['petugas' => $petugas]);
     }

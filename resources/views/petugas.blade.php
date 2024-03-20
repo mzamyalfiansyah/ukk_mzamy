@@ -221,7 +221,7 @@ nav{
 
             <br>
             {{-- <h4 style="font-family:Arial, Helvetica, sans-serif">Daftar Member {{$jumlah}}</h4> --}}
-            <h4 style="font-family:Arial, Helvetica, sans-serif">Data Petugas</h4>
+            <h4 style="font-family:Arial, Helvetica, sans-serif">Data Admin dan Petugas</h4>
             <br>
     
             <div class="table-responsive table table-striped" style="height: 65%">
