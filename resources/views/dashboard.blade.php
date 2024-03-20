@@ -304,14 +304,14 @@ nav{
               
               <script>
                 const ctx = document.getElementById('myChart');
-              const
+              
                 new Chart(ctx, {
                  type: 'bar',
                   data: {
                     labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni','Juli','Agustus','September', 'Oktober', 'November','Desember'],
                     datasets: [{
                       label: 'penghasilan',
-                      data: [{{$tampil_januari}}, {{$tampil_februari}} , , , , , ,],
+                      data: [$tampil_januari, $tampil_februari , , , , , ,],
                       borderWidth: 1
                     }]
                   },
