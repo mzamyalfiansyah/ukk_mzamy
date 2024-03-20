@@ -451,7 +451,7 @@ nav{
       <div style="display: flex;"> 
       
 
-        <div style="background-color: rgb(9, 33, 65); color: white; width: 70%; padding:1%; border-radius: 10px;"> 
+        <div style="background-color: rgb(9, 33, 65); color: white; width: 60%; padding:1%; border-radius: 10px;"> 
           <div style="display: flex; text-align: center; align-items:center">
             <h5 style="">Total Harga: {{number_format($total_harga,0, '.','.')}}</h5> 
 
