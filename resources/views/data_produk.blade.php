@@ -343,17 +343,17 @@
                         <div class="tambah">
                             <div class="mb-3">
                               <label for="produk">Nama Produk</label>
-                              <input type="text" class="form-control" name="nama_produk" placeholder="Nama barang" aria-label="username" aria-describedby="basic-addon1">
+                              <input type="text" class="form-control" name="nama_produk" placeholder="Nama barang" aria-label="username" aria-describedby="basic-addon1" required>
                             </div>
 
                             <div class="mb-3">
                                 <label for="produk">Harga</label>
-                                <input   type="number" class="form-control" name="harga" placeholder="Harga" aria-label="harga" aria-describedby="basic-addon1">
+                                <input   type="number" class="form-control" name="harga" placeholder="Harga" aria-label="harga" aria-describedby="basic-addon1" required>
                             </div>
 
                             <div class="mb-3">
                                 <label for="produk">Stok</label>
-                                <input   type="number" class="form-control" name="stok" placeholder="Stok" aria-label="stok" aria-describedby="basic-addon1">
+                                <input   type="number" class="form-control" name="stok" placeholder="Stok" aria-label="stok" aria-describedby="basic-addon1" required>
                             </div>
                          
 
