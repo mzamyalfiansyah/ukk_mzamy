@@ -293,7 +293,7 @@ nav{
                                     <td>{{$produk->stok}}</td>
 
                                     <td>
-                                      <input type="number" name="qty" class="form-control">
+                                      <input type="number" name="qty" class="form-control" required>
                                       
                                     </td>
 
