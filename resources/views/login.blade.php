@@ -138,7 +138,7 @@
 
 
             <div class="isi">
-                <img src="storage/image/login.jpg" alt="">
+                <img src="storage/image/login.jpg">
 
                 <div class="box" style="align-items: center;
         display: flex;
@@ -161,13 +161,21 @@
                             <h3 class="zkasir2">Kasir</h3>
                         </div>
 
-                        <p class="input-group mb-3">
+                        <p class="input-group mb-3" style="width: 70%;
+                                                            border: 1px solid rgb(97, 114, 138);
+                                                            border-radius: 10px;
+                                                            justify-content: center;
+                                                            margin-left: 15%">
                             <!-- <img src="storage/image/user.png" alt=""> -->
                         
                             <input type="text" class="form-control" name="username" placeholder="Username" aria-label="username" aria-describedby="basic-addon1" required>
                         </p>
 
-                        <p class="input-group mb-3">
+                        <p class="input-group mb-3" style="width: 70%;
+                                                            border: 1px solid rgb(97, 114, 138);
+                                                            border-radius: 10px;
+                                                            justify-content: center;
+                                                            margin-left: 15%">
                             <!-- <img src="storage/image/lock.png" alt=""> -->
                             
                             <input type="password" class="form-control" name="password" placeholder="Password" aria-label="password" aria-describedby="basic-addon1" required>
