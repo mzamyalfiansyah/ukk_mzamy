@@ -24,7 +24,7 @@ use App\Http\Controllers\petugascontroller;
 |
 */
 
-Route::middleware(['auth'])->group(function () { 
+Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashboard',[kasircontroller::class, 'dashboard']);
 
@@ -48,12 +48,12 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/masuk_cart/{id}', [kasircontroller::class, 'order']);
 
-    
+
 
     Route::get('/penjualan', [kasircontroller::class, 'penjualan']);
 
     Route::post('/delete_inventory/{id}', [kasircontroller::class, 'delete_inventory']);
-    
+
     Route::post('/keranjang', [kasircontroller::class, 'keranjang']);
 
     Route::post('/proses_order', [kasircontroller::class, 'proses_order']);
@@ -80,9 +80,11 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/proses_update_petugas/{id}', [petugascontroller::class, 'proses_update_petugas']);
 
-    
-    
 
+    Route::post('/restor/{id}', [kasircontroller::class, 'restor']);
+
+
+    Route::post('/diskon/{id}', [kasircontroller::class, 'diskon']);
 });
 
 
@@ -90,9 +92,9 @@ Route::middleware(['auth'])->group(function () {
     // petugas
 
 
-Route::middleware(['petugas'])->group(function () { 
+Route::middleware(['petugas'])->group(function () {
 
-   
+
 });
 
 

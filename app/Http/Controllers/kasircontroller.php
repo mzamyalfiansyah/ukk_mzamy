@@ -11,14 +11,15 @@ use Illuminate\Support\Facades\Auth;
 
 class kasircontroller extends Controller
 {
-    function dashboard(request $request){
+    function dashboard(request $request)
+    {
 
 
         $admin = DB::table('admin')->get();
         $jumlah_admin = count($admin);
 
         $penjualan = DB::table('penjualan')->get();
-        $total_penjualan= count($penjualan);
+        $total_penjualan = count($penjualan);
 
         $pelanggan = DB::table('pelanggan')->get();
         $total_pelanggan = count($pelanggan);
@@ -28,7 +29,7 @@ class kasircontroller extends Controller
 
 
         $januari = DB::table('penjualan')->whereMonth('created_at', '=', '01')->get('total_harga');
-        $tampil_januari= collect($januari)->sum('total_harga');
+        $tampil_januari = collect($januari)->sum('total_harga');
 
         $februari = DB::table('penjualan')->whereMonth('created_at', '=', '02')->get('total_harga');
         $tampil_februari = collect($februari)->sum('total_harga');
@@ -40,7 +41,7 @@ class kasircontroller extends Controller
         $tampil_april = count($april);
 
         $mei = DB::table('penjualan')->whereMonth('created_at', '=', '05')->get();
-        $tampil_mei= count($mei);
+        $tampil_mei = count($mei);
 
 
         // $harga = DB::table('produk')->get('harga');
@@ -48,38 +49,52 @@ class kasircontroller extends Controller
 
 
 
-        return view('dashboard', ['jumlah_admin' => $jumlah_admin, 'total_penjualan' => $total_penjualan, 'total_pelanggan' => $total_pelanggan,
+        return view('dashboard', [
+            'jumlah_admin' => $jumlah_admin, 'total_penjualan' => $total_penjualan, 'total_pelanggan' => $total_pelanggan,
 
-                                    // tampil grafik
-                                    'tampil_januari' => $tampil_januari,
-                                    'tampil_februari' => $tampil_februari,
-                                    'tampil_maret' => $tampil_maret,
-                                    'tampil_april' => $tampil_april,
-                                    'tampil_mei' => $tampil_mei,
+            // tampil grafik
+            'tampil_januari' => $tampil_januari,
+            'tampil_februari' => $tampil_februari,
+            'tampil_maret' => $tampil_maret,
+            'tampil_april' => $tampil_april,
+            'tampil_mei' => $tampil_mei,
 
-                                'status' => $status]);
-
-                                
+            'status' => $status
+        ]);
     }
 
-    function proses_cart($id){
+    function proses_cart($id)
+    {
 
 
         return view('order', []);
     }
 
-    function data_barang(){
+    function data_barang()
+    {
 
-        $produk = DB::table('produk')->where('status', '=' ,'tersedia')->get();
+        $produk = DB::table('produk')->where('status', '=', 'tersedia')->get();
 
-        $produk_dihapus = DB::table('produk')->where('status', '=' ,'dihapus')->get();
+        $produk_dihapus = DB::table('produk')->where('status', '=', 'dihapus')->get();
 
-        return view('data_produk',  ['tampil_produk' => $produk, 'produk_dihapus' => $produk_dihapus]);
+        $prdk = DB::table('produk')->get();
 
+        return view('data_produk',  ['tampil_produk' => $produk, 'produk_dihapus' => $produk_dihapus, 'prdk' => $prdk]);
     }
 
 
-    function proses_barang(request $request){
+    function restor(request $request, $id)
+    {
+        DB::table('produk')->where('produk_id', '=', $id)->update([
+            'status' => 'tersedia'
+        ]);
+
+        return redirect()->back();
+    }
+
+
+    function proses_barang(request $request)
+    {
 
 
         $nama_produk = $request->nama_produk;
@@ -100,7 +115,8 @@ class kasircontroller extends Controller
 
 
 
-    function order(request $request){
+    function order(request $request)
+    {
 
 
         $produk = DB::table('produk')->where('status', '=', 'tersedia')->get();
@@ -111,18 +127,18 @@ class kasircontroller extends Controller
 
         $id_jual = '';
 
-        if(!$penjualan){
+        if (!$penjualan) {
             $id_jual = 1;
-        }else{
-            if($penjualan->status == "selesai"){
+        } else {
+            if ($penjualan->status == "selesai") {
                 $id_jual = $penjualan->penjualan_id + 1;
-            }else{
+            } else {
                 $id_jual = $penjualan->penjualan_id;
             }
         }
 
         $inventory = DB::table('inventory')->where('penjualan_id', $id_jual)
-        ->join('produk', 'inventory.produk_id', '=', 'produk.produk_id')->get();
+            ->join('produk', 'inventory.produk_id', '=', 'produk.produk_id')->get();
 
         // $harga = DB::table('inventory')->get('total');
         // $total_harga = collect($harga)->sum('total');
@@ -132,14 +148,15 @@ class kasircontroller extends Controller
 
 
 
-        return view('order', ['tampil_produk' => $produk, 'tampil_inventory' => $inventory,
-                    'pelanggan' => $pelanggan,'id_jual' => $id_jual,  'tampil_penjualan' => $penjualan]);
-
-
+        return view('order', [
+            'tampil_produk' => $produk, 'tampil_inventory' => $inventory,
+            'pelanggan' => $pelanggan, 'id_jual' => $id_jual,  'tampil_penjualan' => $penjualan
+        ]);
     }
 
 
-    function checkout(request $request){
+    function checkout(request $request)
+    {
 
         $produk = DB::table('produk')->where('produk_id', $request->produk_id)->first();
 
@@ -160,7 +177,8 @@ class kasircontroller extends Controller
         return redirect()->back();
     }
 
-    function delete_inventory(request $request, $id){
+    function delete_inventory(request $request, $id)
+    {
         // $request->stok;
         // $request->qty;
         //  return $request->all();
@@ -172,23 +190,24 @@ class kasircontroller extends Controller
         //     'stok' => $jumlah
         // ]);
 
-            $hapus = DB::table('inventory')->where('inventory_id','=', $id)->delete();
+        $hapus = DB::table('inventory')->where('inventory_id', '=', $id)->delete();
 
 
 
 
 
-            return redirect()->back();
+        return redirect()->back();
     }
 
 
-    function keranjang(request $request){
+    function keranjang(request $request)
+    {
 
         $produk = DB::table('produk')->where('produK_id', $request->produk_id)->first();
         // return $request->all();
 
         $data_penjualan = DB::table('penjualan')->where('penjualan_id', $request->penjualan_id)->first();
-        if(!$data_penjualan){
+        if (!$data_penjualan) {
             $penjualan = DB::table('penjualan')->insert([
                 'penjualan_id' => $request->penjualan_id,
                 'tanggal_penjualan' => date('Y-m-d'),
@@ -197,11 +216,11 @@ class kasircontroller extends Controller
                 'status' => 'di proses',
                 'created_at' => date('Y-m-d H:i:s')
             ]);
-        } if($produk->stok - $request->qty < 0){
+        }
+        if ($produk->stok - $request->qty < 0) {
 
             return redirect()->back()->with("error", "Stok tidak mencukupi");
-
-        }else{
+        } else {
             $detail_penjualan = DB::table('inventory')->insert([
                 'produk_id' => $request->produk_id,
                 'penjualan_id' => $request->penjualan_id,
@@ -218,11 +237,9 @@ class kasircontroller extends Controller
 
 
         return redirect()->back();
-
     }
 
 
-    
 
 
 
@@ -230,7 +247,9 @@ class kasircontroller extends Controller
 
 
 
-    function proses_hapus($id){
+
+    function proses_hapus($id)
+    {
         DB::table('produk')->where('produk_id', '=', $id)->update([
             'status' => 'dihapus'
         ]);
@@ -240,14 +259,35 @@ class kasircontroller extends Controller
 
 
 
-    function detail_produk($id){
+    function detail_produk(request $request, $id)
+    {
         $produk = DB::table('produk')->where('produk_id', '=', $id)->get();
 
-        return view('detail', ['detail_produk' => $produk]);
+
+
+        $harga_diskon = $request->harga * $request->diskon;
+
+
+
+        return view('detail', ['detail_produk' => $produk, 'harga_diskon' => $harga_diskon]);
     }
 
 
-    function proses_update_produk(request $request, $id){
+    function diskon(request $request, $id)
+    {
+        DB::table('produk')->where('produk_id', '=', $id)->update([
+            'diskon' => $request->diskon
+        ]);
+
+        // return $request->all();
+
+        return redirect()->back();
+    }
+
+
+
+    function proses_update_produk(request $request, $id)
+    {
 
         $nama_produk = $request->nama_produk;
         $harga = $request->harga;
@@ -255,18 +295,22 @@ class kasircontroller extends Controller
 
 
         DB::table('produk')
-        ->where('produk_id', '=', $id)
-        ->update([
-            'nama_produk' => $request->nama_produk,
-            'harga' => $request->harga,
-            'stok' => $request->stok]);
+            ->where('produk_id', '=', $id)
+            ->update([
+                'nama_produk' => $request->nama_produk,
+                'harga' => $request->harga,
+                'stok' => $request->stok
+            ]);
 
         return redirect('data_produk');
     }
 
 
 
-    function tampil_customer(){
+
+
+    function tampil_customer()
+    {
 
         $customer = DB::table('pelanggan')->get();
         $jumlah = count($customer);
@@ -274,7 +318,8 @@ class kasircontroller extends Controller
         return view('customer', ['tampil_pelanggan' => $customer, 'jumlah' => $jumlah]);
     }
 
-    function proses_customer(request $request){
+    function proses_customer(request $request)
+    {
 
         $nama_pelanggan = $request->nama_pelanggan;
         $alamat = $request->alamat;
@@ -291,7 +336,8 @@ class kasircontroller extends Controller
         return redirect()->back();
     }
 
-    function penjualan(){
+    function penjualan()
+    {
 
         $tampil_penjualan = DB::table('penjualan')->get();
 
@@ -300,13 +346,4 @@ class kasircontroller extends Controller
 
         return view('penjualan', ['penjualan' => $tampil_penjualan]);
     }
-
-
-
-
-
-
-
-
-
 }
